@@ -1,0 +1,4 @@
+*.log
+*bilintek*
+*static_platform_samd*
+.vs/

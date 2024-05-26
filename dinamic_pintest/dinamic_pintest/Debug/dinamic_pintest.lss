@@ -1,0 +1,2772 @@
+
+dinamic_pintest.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001000  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .relocate     00000000  20000000  20000000  00011000  2**0
+                  CONTENTS
+  2 .bss          00000084  20000000  20000000  00020000  2**2
+                  ALLOC
+  3 .stack        00002004  20000084  20000084  00020000  2**0
+                  ALLOC
+  4 .ARM.attributes 00000028  00000000  00000000  00011000  2**0
+                  CONTENTS, READONLY
+  5 .comment      00000059  00000000  00000000  00011028  2**0
+                  CONTENTS, READONLY
+  6 .debug_info   0000ef21  00000000  00000000  00011081  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000018f3  00000000  00000000  0001ffa2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    00004c88  00000000  00000000  00021895  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_aranges 000002f0  00000000  00000000  0002651d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000238  00000000  00000000  0002680d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_macro  00016c56  00000000  00000000  00026a45  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_line   0000860b  00000000  00000000  0003d69b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_str    00082536  00000000  00000000  00045ca6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_frame  00000638  00000000  00000000  000c81dc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <exception_table>:
+       0:	88 20 00 20 25 01 00 00 21 01 00 00 21 01 00 00     . . %...!...!...
+	...
+      2c:	21 01 00 00 00 00 00 00 00 00 00 00 21 01 00 00     !...........!...
+      3c:	21 01 00 00 21 01 00 00 21 01 00 00 21 01 00 00     !...!...!...!...
+      4c:	21 01 00 00 05 0a 00 00 21 01 00 00 21 01 00 00     !.......!...!...
+      5c:	21 01 00 00 21 01 00 00 21 01 00 00 21 01 00 00     !...!...!...!...
+      6c:	21 01 00 00 21 01 00 00 21 01 00 00 21 01 00 00     !...!...!...!...
+      7c:	21 01 00 00 21 01 00 00 21 01 00 00 21 01 00 00     !...!...!...!...
+      8c:	21 01 00 00 21 01 00 00 21 01 00 00 21 01 00 00     !...!...!...!...
+      9c:	21 01 00 00 21 01 00 00 21 01 00 00 21 01 00 00     !...!...!...!...
+      ac:	21 01 00 00 00 00 00 00                             !.......
+
+000000b4 <__do_global_dtors_aux>:
+      b4:	b510      	push	{r4, lr}
+      b6:	4c06      	ldr	r4, [pc, #24]	; (d0 <__do_global_dtors_aux+0x1c>)
+      b8:	7823      	ldrb	r3, [r4, #0]
+      ba:	2b00      	cmp	r3, #0
+      bc:	d107      	bne.n	ce <__do_global_dtors_aux+0x1a>
+      be:	4b05      	ldr	r3, [pc, #20]	; (d4 <__do_global_dtors_aux+0x20>)
+      c0:	2b00      	cmp	r3, #0
+      c2:	d002      	beq.n	ca <__do_global_dtors_aux+0x16>
+      c4:	4804      	ldr	r0, [pc, #16]	; (d8 <__do_global_dtors_aux+0x24>)
+      c6:	e000      	b.n	ca <__do_global_dtors_aux+0x16>
+      c8:	bf00      	nop
+      ca:	2301      	movs	r3, #1
+      cc:	7023      	strb	r3, [r4, #0]
+      ce:	bd10      	pop	{r4, pc}
+      d0:	20000000 	.word	0x20000000
+      d4:	00000000 	.word	0x00000000
+      d8:	00001000 	.word	0x00001000
+
+000000dc <frame_dummy>:
+      dc:	4b08      	ldr	r3, [pc, #32]	; (100 <frame_dummy+0x24>)
+      de:	b510      	push	{r4, lr}
+      e0:	2b00      	cmp	r3, #0
+      e2:	d003      	beq.n	ec <frame_dummy+0x10>
+      e4:	4907      	ldr	r1, [pc, #28]	; (104 <frame_dummy+0x28>)
+      e6:	4808      	ldr	r0, [pc, #32]	; (108 <frame_dummy+0x2c>)
+      e8:	e000      	b.n	ec <frame_dummy+0x10>
+      ea:	bf00      	nop
+      ec:	4807      	ldr	r0, [pc, #28]	; (10c <frame_dummy+0x30>)
+      ee:	6803      	ldr	r3, [r0, #0]
+      f0:	2b00      	cmp	r3, #0
+      f2:	d100      	bne.n	f6 <frame_dummy+0x1a>
+      f4:	bd10      	pop	{r4, pc}
+      f6:	4b06      	ldr	r3, [pc, #24]	; (110 <frame_dummy+0x34>)
+      f8:	2b00      	cmp	r3, #0
+      fa:	d0fb      	beq.n	f4 <frame_dummy+0x18>
+      fc:	4798      	blx	r3
+      fe:	e7f9      	b.n	f4 <frame_dummy+0x18>
+     100:	00000000 	.word	0x00000000
+     104:	20000004 	.word	0x20000004
+     108:	00001000 	.word	0x00001000
+     10c:	00001000 	.word	0x00001000
+     110:	00000000 	.word	0x00000000
+
+00000114 <atmel_start_init>:
+
+/**
+ * Initializes MCU, drivers and middleware in the project
+ **/
+void atmel_start_init(void)
+{
+     114:	b510      	push	{r4, lr}
+	system_init();
+     116:	4b01      	ldr	r3, [pc, #4]	; (11c <atmel_start_init+0x8>)
+     118:	4798      	blx	r3
+}
+     11a:	bd10      	pop	{r4, pc}
+     11c:	00000589 	.word	0x00000589
+
+00000120 <Dummy_Handler>:
+
+/**
+ * \brief Default interrupt handler for unused IRQs.
+ */
+void Dummy_Handler(void)
+{
+     120:	e7fe      	b.n	120 <Dummy_Handler>
+	...
+
+00000124 <Reset_Handler>:
+{
+     124:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+        if (pSrc != pDest) {
+     126:	4a23      	ldr	r2, [pc, #140]	; (1b4 <Reset_Handler+0x90>)
+     128:	4b23      	ldr	r3, [pc, #140]	; (1b8 <Reset_Handler+0x94>)
+     12a:	429a      	cmp	r2, r3
+     12c:	d009      	beq.n	142 <Reset_Handler+0x1e>
+     12e:	4b22      	ldr	r3, [pc, #136]	; (1b8 <Reset_Handler+0x94>)
+     130:	4a20      	ldr	r2, [pc, #128]	; (1b4 <Reset_Handler+0x90>)
+     132:	e003      	b.n	13c <Reset_Handler+0x18>
+                        *pDest++ = *pSrc++;
+     134:	6811      	ldr	r1, [r2, #0]
+     136:	6019      	str	r1, [r3, #0]
+     138:	3304      	adds	r3, #4
+     13a:	3204      	adds	r2, #4
+                for (; pDest < &_erelocate;) {
+     13c:	491f      	ldr	r1, [pc, #124]	; (1bc <Reset_Handler+0x98>)
+     13e:	428b      	cmp	r3, r1
+     140:	d3f8      	bcc.n	134 <Reset_Handler+0x10>
+                        *pDest++ = *pSrc++;
+     142:	4b1f      	ldr	r3, [pc, #124]	; (1c0 <Reset_Handler+0x9c>)
+     144:	e002      	b.n	14c <Reset_Handler+0x28>
+                *pDest++ = 0;
+     146:	2200      	movs	r2, #0
+     148:	601a      	str	r2, [r3, #0]
+     14a:	3304      	adds	r3, #4
+        for (pDest = &_szero; pDest < &_ezero;) {
+     14c:	4a1d      	ldr	r2, [pc, #116]	; (1c4 <Reset_Handler+0xa0>)
+     14e:	4293      	cmp	r3, r2
+     150:	d3f9      	bcc.n	146 <Reset_Handler+0x22>
+        SCB->VTOR = ((uint32_t) pSrc & SCB_VTOR_TBLOFF_Msk);
+     152:	4a1d      	ldr	r2, [pc, #116]	; (1c8 <Reset_Handler+0xa4>)
+     154:	21ff      	movs	r1, #255	; 0xff
+     156:	4b1d      	ldr	r3, [pc, #116]	; (1cc <Reset_Handler+0xa8>)
+     158:	438b      	bics	r3, r1
+     15a:	6093      	str	r3, [r2, #8]
+        SBMATRIX->SFR[SBMATRIX_SLAVE_HMCRAMC0].reg = 2;
+     15c:	39fd      	subs	r1, #253	; 0xfd
+     15e:	2390      	movs	r3, #144	; 0x90
+     160:	005b      	lsls	r3, r3, #1
+     162:	4a1b      	ldr	r2, [pc, #108]	; (1d0 <Reset_Handler+0xac>)
+     164:	50d1      	str	r1, [r2, r3]
+        USB->DEVICE.QOSCTRL.bit.CQOS = 2;
+     166:	4a1b      	ldr	r2, [pc, #108]	; (1d4 <Reset_Handler+0xb0>)
+     168:	78d3      	ldrb	r3, [r2, #3]
+     16a:	2503      	movs	r5, #3
+     16c:	43ab      	bics	r3, r5
+     16e:	2402      	movs	r4, #2
+     170:	4323      	orrs	r3, r4
+     172:	70d3      	strb	r3, [r2, #3]
+        USB->DEVICE.QOSCTRL.bit.DQOS = 2;
+     174:	78d3      	ldrb	r3, [r2, #3]
+     176:	270c      	movs	r7, #12
+     178:	43bb      	bics	r3, r7
+     17a:	2608      	movs	r6, #8
+     17c:	4333      	orrs	r3, r6
+     17e:	70d3      	strb	r3, [r2, #3]
+        DMAC->QOSCTRL.bit.DQOS = 2;
+     180:	4b15      	ldr	r3, [pc, #84]	; (1d8 <Reset_Handler+0xb4>)
+     182:	7b98      	ldrb	r0, [r3, #14]
+     184:	2230      	movs	r2, #48	; 0x30
+     186:	4390      	bics	r0, r2
+     188:	2220      	movs	r2, #32
+     18a:	4310      	orrs	r0, r2
+     18c:	7398      	strb	r0, [r3, #14]
+        DMAC->QOSCTRL.bit.FQOS = 2;
+     18e:	7b99      	ldrb	r1, [r3, #14]
+     190:	43b9      	bics	r1, r7
+     192:	4331      	orrs	r1, r6
+     194:	7399      	strb	r1, [r3, #14]
+        DMAC->QOSCTRL.bit.WRBQOS = 2;
+     196:	7b9a      	ldrb	r2, [r3, #14]
+     198:	43aa      	bics	r2, r5
+     19a:	4322      	orrs	r2, r4
+     19c:	739a      	strb	r2, [r3, #14]
+        NVMCTRL->CTRLB.bit.MANW = 1;
+     19e:	4a0f      	ldr	r2, [pc, #60]	; (1dc <Reset_Handler+0xb8>)
+     1a0:	6851      	ldr	r1, [r2, #4]
+     1a2:	2380      	movs	r3, #128	; 0x80
+     1a4:	430b      	orrs	r3, r1
+     1a6:	6053      	str	r3, [r2, #4]
+        __libc_init_array();
+     1a8:	4b0d      	ldr	r3, [pc, #52]	; (1e0 <Reset_Handler+0xbc>)
+     1aa:	4798      	blx	r3
+        main();
+     1ac:	4b0d      	ldr	r3, [pc, #52]	; (1e4 <Reset_Handler+0xc0>)
+     1ae:	4798      	blx	r3
+     1b0:	e7fe      	b.n	1b0 <Reset_Handler+0x8c>
+     1b2:	46c0      	nop			; (mov r8, r8)
+     1b4:	00001000 	.word	0x00001000
+     1b8:	20000000 	.word	0x20000000
+     1bc:	20000000 	.word	0x20000000
+     1c0:	20000000 	.word	0x20000000
+     1c4:	20000084 	.word	0x20000084
+     1c8:	e000ed00 	.word	0xe000ed00
+     1cc:	00000000 	.word	0x00000000
+     1d0:	41007000 	.word	0x41007000
+     1d4:	41005000 	.word	0x41005000
+     1d8:	41004800 	.word	0x41004800
+     1dc:	41004000 	.word	0x41004000
+     1e0:	00000f21 	.word	0x00000f21
+     1e4:	00000d29 	.word	0x00000d29
+
+000001e8 <EXTERNAL_IRQ_0_init>:
+#include <hal_init.h>
+#include <hpl_gclk_base.h>
+#include <hpl_pm_base.h>
+
+void EXTERNAL_IRQ_0_init(void)
+{
+     1e8:	b5f0      	push	{r4, r5, r6, r7, lr}
+     1ea:	46de      	mov	lr, fp
+     1ec:	4657      	mov	r7, sl
+     1ee:	464e      	mov	r6, r9
+     1f0:	4645      	mov	r5, r8
+     1f2:	b5e0      	push	{r5, r6, r7, lr}
+     1f4:	b083      	sub	sp, #12
+}
+
+static inline void hri_gclk_write_CLKCTRL_reg(const void *const hw, hri_gclk_clkctrl_reg_t data)
+{
+	GCLK_CRITICAL_SECTION_ENTER();
+	((Gclk *)hw)->CLKCTRL.reg = data;
+     1f6:	4ad2      	ldr	r2, [pc, #840]	; (540 <EXTERNAL_IRQ_0_init+0x358>)
+     1f8:	4bd2      	ldr	r3, [pc, #840]	; (544 <EXTERNAL_IRQ_0_init+0x35c>)
+     1fa:	805a      	strh	r2, [r3, #2]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = ~data;
+}
+
+static inline void hri_port_clear_DIR_reg(const void *const hw, uint8_t submodule_index, hri_port_dir_reg_t mask)
+{
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     1fc:	25c0      	movs	r5, #192	; 0xc0
+     1fe:	05ed      	lsls	r5, r5, #23
+     200:	2101      	movs	r1, #1
+     202:	2384      	movs	r3, #132	; 0x84
+     204:	50e9      	str	r1, [r5, r3]
+
+static inline void hri_port_write_WRCONFIG_reg(const void *const hw, uint8_t submodule_index,
+                                               hri_port_wrconfig_reg_t data)
+{
+	PORT_CRITICAL_SECTION_ENTER();
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     206:	4bd0      	ldr	r3, [pc, #832]	; (548 <EXTERNAL_IRQ_0_init+0x360>)
+     208:	22a8      	movs	r2, #168	; 0xa8
+     20a:	48d0      	ldr	r0, [pc, #832]	; (54c <EXTERNAL_IRQ_0_init+0x364>)
+     20c:	5098      	str	r0, [r3, r2]
+     20e:	48d0      	ldr	r0, [pc, #832]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     210:	5098      	str	r0, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     212:	20c0      	movs	r0, #192	; 0xc0
+     214:	4680      	mov	r8, r0
+     216:	5c1c      	ldrb	r4, [r3, r0]
+     218:	38bc      	subs	r0, #188	; 0xbc
+     21a:	4384      	bics	r4, r0
+     21c:	4647      	mov	r7, r8
+     21e:	55dc      	strb	r4, [r3, r7]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     220:	5ddc      	ldrb	r4, [r3, r7]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     222:	438c      	bics	r4, r1
+     224:	46a4      	mov	ip, r4
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     226:	2401      	movs	r4, #1
+     228:	4667      	mov	r7, ip
+     22a:	4327      	orrs	r7, r4
+     22c:	466e      	mov	r6, sp
+     22e:	71f7      	strb	r7, [r6, #7]
+     230:	b2ff      	uxtb	r7, r7
+     232:	46bc      	mov	ip, r7
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     234:	4647      	mov	r7, r8
+     236:	4666      	mov	r6, ip
+     238:	55de      	strb	r6, [r3, r7]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     23a:	26b0      	movs	r6, #176	; 0xb0
+     23c:	46b1      	mov	r9, r6
+     23e:	5d9e      	ldrb	r6, [r3, r6]
+     240:	46b4      	mov	ip, r6
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     242:	260f      	movs	r6, #15
+     244:	46b0      	mov	r8, r6
+     246:	4667      	mov	r7, ip
+     248:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     24a:	464e      	mov	r6, r9
+     24c:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     24e:	3e2c      	subs	r6, #44	; 0x2c
+     250:	51a8      	str	r0, [r5, r6]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     252:	4ec0      	ldr	r6, [pc, #768]	; (554 <EXTERNAL_IRQ_0_init+0x36c>)
+     254:	509e      	str	r6, [r3, r2]
+     256:	4ebe      	ldr	r6, [pc, #760]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     258:	509e      	str	r6, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     25a:	26c2      	movs	r6, #194	; 0xc2
+     25c:	46b1      	mov	r9, r6
+     25e:	5d9e      	ldrb	r6, [r3, r6]
+     260:	0037      	movs	r7, r6
+     262:	4387      	bics	r7, r0
+     264:	464e      	mov	r6, r9
+     266:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     268:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     26a:	0037      	movs	r7, r6
+     26c:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     26e:	4327      	orrs	r7, r4
+     270:	1c3e      	adds	r6, r7, #0
+     272:	466f      	mov	r7, sp
+     274:	71fe      	strb	r6, [r7, #7]
+     276:	79fe      	ldrb	r6, [r7, #7]
+     278:	46b4      	mov	ip, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     27a:	464e      	mov	r6, r9
+     27c:	4667      	mov	r7, ip
+     27e:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     280:	3e11      	subs	r6, #17
+     282:	46b1      	mov	r9, r6
+     284:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     286:	0037      	movs	r7, r6
+     288:	4646      	mov	r6, r8
+     28a:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     28c:	464e      	mov	r6, r9
+     28e:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     290:	2680      	movs	r6, #128	; 0x80
+     292:	03f6      	lsls	r6, r6, #15
+     294:	2784      	movs	r7, #132	; 0x84
+     296:	51ee      	str	r6, [r5, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     298:	4eaf      	ldr	r6, [pc, #700]	; (558 <EXTERNAL_IRQ_0_init+0x370>)
+     29a:	46b2      	mov	sl, r6
+     29c:	509e      	str	r6, [r3, r2]
+     29e:	4eaf      	ldr	r6, [pc, #700]	; (55c <EXTERNAL_IRQ_0_init+0x374>)
+     2a0:	509e      	str	r6, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     2a2:	26d6      	movs	r6, #214	; 0xd6
+     2a4:	46b1      	mov	r9, r6
+     2a6:	5d9e      	ldrb	r6, [r3, r6]
+     2a8:	0037      	movs	r7, r6
+     2aa:	4387      	bics	r7, r0
+     2ac:	464e      	mov	r6, r9
+     2ae:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     2b0:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     2b2:	0037      	movs	r7, r6
+     2b4:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     2b6:	4327      	orrs	r7, r4
+     2b8:	1c3e      	adds	r6, r7, #0
+     2ba:	466f      	mov	r7, sp
+     2bc:	71fe      	strb	r6, [r7, #7]
+     2be:	79fe      	ldrb	r6, [r7, #7]
+     2c0:	46b4      	mov	ip, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     2c2:	464e      	mov	r6, r9
+     2c4:	4667      	mov	r7, ip
+     2c6:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     2c8:	3e1b      	subs	r6, #27
+     2ca:	46b1      	mov	r9, r6
+     2cc:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     2ce:	0037      	movs	r7, r6
+     2d0:	4646      	mov	r6, r8
+     2d2:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     2d4:	464e      	mov	r6, r9
+     2d6:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     2d8:	2680      	movs	r6, #128	; 0x80
+     2da:	0436      	lsls	r6, r6, #16
+     2dc:	606e      	str	r6, [r5, #4]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     2de:	4656      	mov	r6, sl
+     2e0:	629e      	str	r6, [r3, #40]	; 0x28
+     2e2:	4e9f      	ldr	r6, [pc, #636]	; (560 <EXTERNAL_IRQ_0_init+0x378>)
+     2e4:	629e      	str	r6, [r3, #40]	; 0x28
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     2e6:	2657      	movs	r6, #87	; 0x57
+     2e8:	46b1      	mov	r9, r6
+     2ea:	5d9e      	ldrb	r6, [r3, r6]
+     2ec:	0037      	movs	r7, r6
+     2ee:	4387      	bics	r7, r0
+     2f0:	464e      	mov	r6, r9
+     2f2:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     2f4:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     2f6:	0037      	movs	r7, r6
+     2f8:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     2fa:	4327      	orrs	r7, r4
+     2fc:	1c3e      	adds	r6, r7, #0
+     2fe:	466f      	mov	r7, sp
+     300:	71fe      	strb	r6, [r7, #7]
+     302:	79fe      	ldrb	r6, [r7, #7]
+     304:	46b4      	mov	ip, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     306:	464e      	mov	r6, r9
+     308:	4667      	mov	r7, ip
+     30a:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     30c:	3e1c      	subs	r6, #28
+     30e:	46b3      	mov	fp, r6
+     310:	5d9e      	ldrb	r6, [r3, r6]
+     312:	46b1      	mov	r9, r6
+	tmp &= ~PORT_PMUX_PMUXO_Msk;
+     314:	260f      	movs	r6, #15
+     316:	46b4      	mov	ip, r6
+     318:	464f      	mov	r7, r9
+     31a:	4037      	ands	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     31c:	465e      	mov	r6, fp
+     31e:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     320:	2680      	movs	r6, #128	; 0x80
+     322:	0576      	lsls	r6, r6, #21
+     324:	606e      	str	r6, [r5, #4]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     326:	4656      	mov	r6, sl
+     328:	629e      	str	r6, [r3, #40]	; 0x28
+     32a:	4e8e      	ldr	r6, [pc, #568]	; (564 <EXTERNAL_IRQ_0_init+0x37c>)
+     32c:	629e      	str	r6, [r3, #40]	; 0x28
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     32e:	265c      	movs	r6, #92	; 0x5c
+     330:	46b3      	mov	fp, r6
+     332:	5d9e      	ldrb	r6, [r3, r6]
+     334:	0037      	movs	r7, r6
+     336:	4387      	bics	r7, r0
+     338:	465e      	mov	r6, fp
+     33a:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     33c:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     33e:	0037      	movs	r7, r6
+     340:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     342:	4327      	orrs	r7, r4
+     344:	1c3e      	adds	r6, r7, #0
+     346:	466f      	mov	r7, sp
+     348:	71fe      	strb	r6, [r7, #7]
+     34a:	79fe      	ldrb	r6, [r7, #7]
+     34c:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     34e:	465e      	mov	r6, fp
+     350:	464f      	mov	r7, r9
+     352:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     354:	3e1e      	subs	r6, #30
+     356:	46b3      	mov	fp, r6
+     358:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     35a:	0037      	movs	r7, r6
+     35c:	4646      	mov	r6, r8
+     35e:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     360:	465e      	mov	r6, fp
+     362:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     364:	36c3      	adds	r6, #195	; 0xc3
+     366:	36ff      	adds	r6, #255	; 0xff
+     368:	606e      	str	r6, [r5, #4]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     36a:	4e7f      	ldr	r6, [pc, #508]	; (568 <EXTERNAL_IRQ_0_init+0x380>)
+     36c:	629e      	str	r6, [r3, #40]	; 0x28
+     36e:	4e78      	ldr	r6, [pc, #480]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     370:	629e      	str	r6, [r3, #40]	; 0x28
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     372:	2649      	movs	r6, #73	; 0x49
+     374:	46b3      	mov	fp, r6
+     376:	5d9e      	ldrb	r6, [r3, r6]
+     378:	0037      	movs	r7, r6
+     37a:	4387      	bics	r7, r0
+     37c:	465e      	mov	r6, fp
+     37e:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     380:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     382:	0037      	movs	r7, r6
+     384:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     386:	4327      	orrs	r7, r4
+     388:	1c3e      	adds	r6, r7, #0
+     38a:	466f      	mov	r7, sp
+     38c:	71fe      	strb	r6, [r7, #7]
+     38e:	79fe      	ldrb	r6, [r7, #7]
+     390:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     392:	465e      	mov	r6, fp
+     394:	464f      	mov	r7, r9
+     396:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     398:	3e15      	subs	r6, #21
+     39a:	46b3      	mov	fp, r6
+     39c:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXO_Msk;
+     39e:	0037      	movs	r7, r6
+     3a0:	4666      	mov	r6, ip
+     3a2:	4037      	ands	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     3a4:	465e      	mov	r6, fp
+     3a6:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     3a8:	2680      	movs	r6, #128	; 0x80
+     3aa:	00f6      	lsls	r6, r6, #3
+     3ac:	2784      	movs	r7, #132	; 0x84
+     3ae:	51ee      	str	r6, [r5, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     3b0:	4e6e      	ldr	r6, [pc, #440]	; (56c <EXTERNAL_IRQ_0_init+0x384>)
+     3b2:	509e      	str	r6, [r3, r2]
+     3b4:	4e66      	ldr	r6, [pc, #408]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     3b6:	509e      	str	r6, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     3b8:	26ca      	movs	r6, #202	; 0xca
+     3ba:	46b3      	mov	fp, r6
+     3bc:	5d9e      	ldrb	r6, [r3, r6]
+     3be:	0037      	movs	r7, r6
+     3c0:	4387      	bics	r7, r0
+     3c2:	465e      	mov	r6, fp
+     3c4:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     3c6:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     3c8:	0037      	movs	r7, r6
+     3ca:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     3cc:	4327      	orrs	r7, r4
+     3ce:	1c3e      	adds	r6, r7, #0
+     3d0:	466f      	mov	r7, sp
+     3d2:	71fe      	strb	r6, [r7, #7]
+     3d4:	79fe      	ldrb	r6, [r7, #7]
+     3d6:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     3d8:	465e      	mov	r6, fp
+     3da:	464f      	mov	r7, r9
+     3dc:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     3de:	3e15      	subs	r6, #21
+     3e0:	46b3      	mov	fp, r6
+     3e2:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     3e4:	0037      	movs	r7, r6
+     3e6:	4646      	mov	r6, r8
+     3e8:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     3ea:	465e      	mov	r6, fp
+     3ec:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     3ee:	2680      	movs	r6, #128	; 0x80
+     3f0:	0136      	lsls	r6, r6, #4
+     3f2:	606e      	str	r6, [r5, #4]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     3f4:	4e5e      	ldr	r6, [pc, #376]	; (570 <EXTERNAL_IRQ_0_init+0x388>)
+     3f6:	629e      	str	r6, [r3, #40]	; 0x28
+     3f8:	4e55      	ldr	r6, [pc, #340]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     3fa:	629e      	str	r6, [r3, #40]	; 0x28
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     3fc:	264b      	movs	r6, #75	; 0x4b
+     3fe:	46b3      	mov	fp, r6
+     400:	5d9e      	ldrb	r6, [r3, r6]
+     402:	0037      	movs	r7, r6
+     404:	4387      	bics	r7, r0
+     406:	465e      	mov	r6, fp
+     408:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     40a:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     40c:	0037      	movs	r7, r6
+     40e:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     410:	4327      	orrs	r7, r4
+     412:	1c3e      	adds	r6, r7, #0
+     414:	466f      	mov	r7, sp
+     416:	71fe      	strb	r6, [r7, #7]
+     418:	79fe      	ldrb	r6, [r7, #7]
+     41a:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     41c:	465e      	mov	r6, fp
+     41e:	464f      	mov	r7, r9
+     420:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     422:	3e16      	subs	r6, #22
+     424:	46b3      	mov	fp, r6
+     426:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXO_Msk;
+     428:	0037      	movs	r7, r6
+     42a:	4666      	mov	r6, ip
+     42c:	4037      	ands	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     42e:	465e      	mov	r6, fp
+     430:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     432:	2680      	movs	r6, #128	; 0x80
+     434:	0176      	lsls	r6, r6, #5
+     436:	606e      	str	r6, [r5, #4]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     438:	4e4e      	ldr	r6, [pc, #312]	; (574 <EXTERNAL_IRQ_0_init+0x38c>)
+     43a:	629e      	str	r6, [r3, #40]	; 0x28
+     43c:	4e44      	ldr	r6, [pc, #272]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     43e:	629e      	str	r6, [r3, #40]	; 0x28
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     440:	264c      	movs	r6, #76	; 0x4c
+     442:	46b3      	mov	fp, r6
+     444:	5d9e      	ldrb	r6, [r3, r6]
+     446:	0037      	movs	r7, r6
+     448:	4387      	bics	r7, r0
+     44a:	465e      	mov	r6, fp
+     44c:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     44e:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     450:	0037      	movs	r7, r6
+     452:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     454:	4327      	orrs	r7, r4
+     456:	1c3e      	adds	r6, r7, #0
+     458:	466f      	mov	r7, sp
+     45a:	71fe      	strb	r6, [r7, #7]
+     45c:	79fe      	ldrb	r6, [r7, #7]
+     45e:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     460:	465e      	mov	r6, fp
+     462:	464f      	mov	r7, r9
+     464:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     466:	3e16      	subs	r6, #22
+     468:	46b3      	mov	fp, r6
+     46a:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     46c:	0037      	movs	r7, r6
+     46e:	4646      	mov	r6, r8
+     470:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     472:	465e      	mov	r6, fp
+     474:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     476:	2680      	movs	r6, #128	; 0x80
+     478:	01b6      	lsls	r6, r6, #6
+     47a:	2784      	movs	r7, #132	; 0x84
+     47c:	51ee      	str	r6, [r5, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     47e:	4e3e      	ldr	r6, [pc, #248]	; (578 <EXTERNAL_IRQ_0_init+0x390>)
+     480:	509e      	str	r6, [r3, r2]
+     482:	4e33      	ldr	r6, [pc, #204]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     484:	509e      	str	r6, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     486:	26cd      	movs	r6, #205	; 0xcd
+     488:	46b3      	mov	fp, r6
+     48a:	5d9e      	ldrb	r6, [r3, r6]
+     48c:	0037      	movs	r7, r6
+     48e:	4387      	bics	r7, r0
+     490:	465e      	mov	r6, fp
+     492:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     494:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     496:	0037      	movs	r7, r6
+     498:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     49a:	4327      	orrs	r7, r4
+     49c:	1c3e      	adds	r6, r7, #0
+     49e:	466f      	mov	r7, sp
+     4a0:	71fe      	strb	r6, [r7, #7]
+     4a2:	79fe      	ldrb	r6, [r7, #7]
+     4a4:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     4a6:	465e      	mov	r6, fp
+     4a8:	464f      	mov	r7, r9
+     4aa:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     4ac:	3e17      	subs	r6, #23
+     4ae:	46b3      	mov	fp, r6
+     4b0:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXO_Msk;
+     4b2:	0037      	movs	r7, r6
+     4b4:	4666      	mov	r6, ip
+     4b6:	4037      	ands	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     4b8:	465e      	mov	r6, fp
+     4ba:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     4bc:	2680      	movs	r6, #128	; 0x80
+     4be:	05f6      	lsls	r6, r6, #23
+     4c0:	2784      	movs	r7, #132	; 0x84
+     4c2:	51ee      	str	r6, [r5, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     4c4:	4656      	mov	r6, sl
+     4c6:	509e      	str	r6, [r3, r2]
+     4c8:	4e2c      	ldr	r6, [pc, #176]	; (57c <EXTERNAL_IRQ_0_init+0x394>)
+     4ca:	509e      	str	r6, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     4cc:	26de      	movs	r6, #222	; 0xde
+     4ce:	46b2      	mov	sl, r6
+     4d0:	5d9e      	ldrb	r6, [r3, r6]
+     4d2:	0037      	movs	r7, r6
+     4d4:	4387      	bics	r7, r0
+     4d6:	4656      	mov	r6, sl
+     4d8:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     4da:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     4dc:	0037      	movs	r7, r6
+     4de:	438f      	bics	r7, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     4e0:	4327      	orrs	r7, r4
+     4e2:	1c3e      	adds	r6, r7, #0
+     4e4:	466f      	mov	r7, sp
+     4e6:	71fe      	strb	r6, [r7, #7]
+     4e8:	79fe      	ldrb	r6, [r7, #7]
+     4ea:	46b1      	mov	r9, r6
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     4ec:	4656      	mov	r6, sl
+     4ee:	464f      	mov	r7, r9
+     4f0:	559f      	strb	r7, [r3, r6]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     4f2:	3e1f      	subs	r6, #31
+     4f4:	46b2      	mov	sl, r6
+     4f6:	5d9e      	ldrb	r6, [r3, r6]
+	tmp &= ~PORT_PMUX_PMUXE_Msk;
+     4f8:	0037      	movs	r7, r6
+     4fa:	4646      	mov	r6, r8
+     4fc:	43b7      	bics	r7, r6
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     4fe:	4656      	mov	r6, sl
+     500:	559f      	strb	r7, [r3, r6]
+	((Port *)hw)->Group[submodule_index].DIRCLR.reg = mask;
+     502:	2680      	movs	r6, #128	; 0x80
+     504:	0236      	lsls	r6, r6, #8
+     506:	2784      	movs	r7, #132	; 0x84
+     508:	51ee      	str	r6, [r5, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     50a:	4d1d      	ldr	r5, [pc, #116]	; (580 <EXTERNAL_IRQ_0_init+0x398>)
+     50c:	509d      	str	r5, [r3, r2]
+     50e:	4d10      	ldr	r5, [pc, #64]	; (550 <EXTERNAL_IRQ_0_init+0x368>)
+     510:	509d      	str	r5, [r3, r2]
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg &= ~PORT_PINCFG_PULLEN;
+     512:	25cf      	movs	r5, #207	; 0xcf
+     514:	5d5a      	ldrb	r2, [r3, r5]
+     516:	4382      	bics	r2, r0
+     518:	555a      	strb	r2, [r3, r5]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     51a:	5d5a      	ldrb	r2, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     51c:	438a      	bics	r2, r1
+	tmp |= value << PORT_PINCFG_PMUXEN_Pos;
+     51e:	4314      	orrs	r4, r2
+     520:	b2e4      	uxtb	r4, r4
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     522:	555c      	strb	r4, [r3, r5]
+	tmp = ((Port *)hw)->Group[submodule_index].PMUX[index].reg;
+     524:	31b6      	adds	r1, #182	; 0xb6
+     526:	5c5a      	ldrb	r2, [r3, r1]
+	tmp &= ~PORT_PMUX_PMUXO_Msk;
+     528:	4660      	mov	r0, ip
+     52a:	4002      	ands	r2, r0
+	((Port *)hw)->Group[submodule_index].PMUX[index].reg = tmp;
+     52c:	545a      	strb	r2, [r3, r1]
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(DOUT8, PINMUX_PB15A_EIC_EXTINT15);
+
+	ext_irq_init();
+     52e:	4b15      	ldr	r3, [pc, #84]	; (584 <EXTERNAL_IRQ_0_init+0x39c>)
+     530:	4798      	blx	r3
+}
+     532:	b003      	add	sp, #12
+     534:	bc3c      	pop	{r2, r3, r4, r5}
+     536:	4690      	mov	r8, r2
+     538:	4699      	mov	r9, r3
+     53a:	46a2      	mov	sl, r4
+     53c:	46ab      	mov	fp, r5
+     53e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+     540:	00004005 	.word	0x00004005
+     544:	40000c00 	.word	0x40000c00
+     548:	41004400 	.word	0x41004400
+     54c:	40020001 	.word	0x40020001
+     550:	c0020000 	.word	0xc0020000
+     554:	40020004 	.word	0x40020004
+     558:	40020000 	.word	0x40020000
+     55c:	c0020040 	.word	0xc0020040
+     560:	c0020080 	.word	0xc0020080
+     564:	c0021000 	.word	0xc0021000
+     568:	40020200 	.word	0x40020200
+     56c:	40020400 	.word	0x40020400
+     570:	40020800 	.word	0x40020800
+     574:	40021000 	.word	0x40021000
+     578:	40022000 	.word	0x40022000
+     57c:	c0024000 	.word	0xc0024000
+     580:	40028000 	.word	0x40028000
+     584:	00000795 	.word	0x00000795
+
+00000588 <system_init>:
+
+void system_init(void)
+{
+     588:	b5f0      	push	{r4, r5, r6, r7, lr}
+     58a:	46d6      	mov	lr, sl
+     58c:	464f      	mov	r7, r9
+     58e:	4646      	mov	r6, r8
+     590:	b5c0      	push	{r6, r7, lr}
+ * Currently the following initialization functions are supported:
+ *  - System clock initialization
+ */
+static inline void init_mcu(void)
+{
+	_init_chip();
+     592:	4b58      	ldr	r3, [pc, #352]	; (6f4 <system_init+0x16c>)
+     594:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     596:	22c0      	movs	r2, #192	; 0xc0
+     598:	05d2      	lsls	r2, r2, #23
+     59a:	2380      	movs	r3, #128	; 0x80
+     59c:	005b      	lsls	r3, r3, #1
+     59e:	6153      	str	r3, [r2, #20]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     5a0:	6093      	str	r3, [r2, #8]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     5a2:	4b55      	ldr	r3, [pc, #340]	; (6f8 <system_init+0x170>)
+     5a4:	4955      	ldr	r1, [pc, #340]	; (6fc <system_init+0x174>)
+     5a6:	6299      	str	r1, [r3, #40]	; 0x28
+     5a8:	24c0      	movs	r4, #192	; 0xc0
+     5aa:	0624      	lsls	r4, r4, #24
+     5ac:	629c      	str	r4, [r3, #40]	; 0x28
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     5ae:	2548      	movs	r5, #72	; 0x48
+     5b0:	5d59      	ldrb	r1, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     5b2:	2001      	movs	r0, #1
+     5b4:	4381      	bics	r1, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     5b6:	5559      	strb	r1, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     5b8:	2180      	movs	r1, #128	; 0x80
+     5ba:	00c9      	lsls	r1, r1, #3
+     5bc:	6151      	str	r1, [r2, #20]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     5be:	6091      	str	r1, [r2, #8]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     5c0:	494f      	ldr	r1, [pc, #316]	; (700 <system_init+0x178>)
+     5c2:	6299      	str	r1, [r3, #40]	; 0x28
+     5c4:	629c      	str	r4, [r3, #40]	; 0x28
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     5c6:	3502      	adds	r5, #2
+     5c8:	5d59      	ldrb	r1, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     5ca:	4381      	bics	r1, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     5cc:	5559      	strb	r1, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     5ce:	2180      	movs	r1, #128	; 0x80
+     5d0:	0189      	lsls	r1, r1, #6
+     5d2:	6151      	str	r1, [r2, #20]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     5d4:	6091      	str	r1, [r2, #8]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     5d6:	494b      	ldr	r1, [pc, #300]	; (704 <system_init+0x17c>)
+     5d8:	6299      	str	r1, [r3, #40]	; 0x28
+     5da:	629c      	str	r4, [r3, #40]	; 0x28
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     5dc:	3503      	adds	r5, #3
+     5de:	5d59      	ldrb	r1, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     5e0:	4381      	bics	r1, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     5e2:	5559      	strb	r1, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     5e4:	2180      	movs	r1, #128	; 0x80
+     5e6:	03c9      	lsls	r1, r1, #15
+     5e8:	6151      	str	r1, [r2, #20]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     5ea:	6091      	str	r1, [r2, #8]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     5ec:	2180      	movs	r1, #128	; 0x80
+     5ee:	05c9      	lsls	r1, r1, #23
+     5f0:	468a      	mov	sl, r1
+     5f2:	6299      	str	r1, [r3, #40]	; 0x28
+     5f4:	4944      	ldr	r1, [pc, #272]	; (708 <system_init+0x180>)
+     5f6:	6299      	str	r1, [r3, #40]	; 0x28
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     5f8:	3509      	adds	r5, #9
+     5fa:	5d59      	ldrb	r1, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     5fc:	4381      	bics	r1, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     5fe:	5559      	strb	r1, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     600:	2180      	movs	r1, #128	; 0x80
+     602:	0509      	lsls	r1, r1, #20
+     604:	6151      	str	r1, [r2, #20]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     606:	6091      	str	r1, [r2, #8]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     608:	4651      	mov	r1, sl
+     60a:	6299      	str	r1, [r3, #40]	; 0x28
+     60c:	493f      	ldr	r1, [pc, #252]	; (70c <system_init+0x184>)
+     60e:	6299      	str	r1, [r3, #40]	; 0x28
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     610:	3505      	adds	r5, #5
+     612:	5d59      	ldrb	r1, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     614:	4381      	bics	r1, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     616:	5559      	strb	r1, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     618:	2694      	movs	r6, #148	; 0x94
+     61a:	2102      	movs	r1, #2
+     61c:	5191      	str	r1, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     61e:	352d      	adds	r5, #45	; 0x2d
+     620:	46a9      	mov	r9, r5
+     622:	5151      	str	r1, [r2, r5]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     624:	31a6      	adds	r1, #166	; 0xa6
+     626:	4f3a      	ldr	r7, [pc, #232]	; (710 <system_init+0x188>)
+     628:	505f      	str	r7, [r3, r1]
+     62a:	505c      	str	r4, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     62c:	27c1      	movs	r7, #193	; 0xc1
+     62e:	46b8      	mov	r8, r7
+     630:	5ddf      	ldrb	r7, [r3, r7]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     632:	4387      	bics	r7, r0
+     634:	46bc      	mov	ip, r7
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     636:	4647      	mov	r7, r8
+     638:	4665      	mov	r5, ip
+     63a:	55dd      	strb	r5, [r3, r7]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     63c:	2508      	movs	r5, #8
+     63e:	5195      	str	r5, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     640:	464f      	mov	r7, r9
+     642:	51d5      	str	r5, [r2, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     644:	4d33      	ldr	r5, [pc, #204]	; (714 <system_init+0x18c>)
+     646:	505d      	str	r5, [r3, r1]
+     648:	505c      	str	r4, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     64a:	25c3      	movs	r5, #195	; 0xc3
+     64c:	46a8      	mov	r8, r5
+     64e:	5d5d      	ldrb	r5, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     650:	002f      	movs	r7, r5
+     652:	4387      	bics	r7, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     654:	4645      	mov	r5, r8
+     656:	555f      	strb	r7, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     658:	2580      	movs	r5, #128	; 0x80
+     65a:	012d      	lsls	r5, r5, #4
+     65c:	5195      	str	r5, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     65e:	464f      	mov	r7, r9
+     660:	51d5      	str	r5, [r2, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     662:	4d2d      	ldr	r5, [pc, #180]	; (718 <system_init+0x190>)
+     664:	505d      	str	r5, [r3, r1]
+     666:	505c      	str	r4, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     668:	25cb      	movs	r5, #203	; 0xcb
+     66a:	46a8      	mov	r8, r5
+     66c:	5d5d      	ldrb	r5, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     66e:	002f      	movs	r7, r5
+     670:	4387      	bics	r7, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     672:	4645      	mov	r5, r8
+     674:	555f      	strb	r7, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     676:	2580      	movs	r5, #128	; 0x80
+     678:	016d      	lsls	r5, r5, #5
+     67a:	5195      	str	r5, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     67c:	464f      	mov	r7, r9
+     67e:	51d5      	str	r5, [r2, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     680:	4d26      	ldr	r5, [pc, #152]	; (71c <system_init+0x194>)
+     682:	505d      	str	r5, [r3, r1]
+     684:	505c      	str	r4, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     686:	25cc      	movs	r5, #204	; 0xcc
+     688:	46a8      	mov	r8, r5
+     68a:	5d5d      	ldrb	r5, [r3, r5]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     68c:	002f      	movs	r7, r5
+     68e:	4387      	bics	r7, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     690:	4645      	mov	r5, r8
+     692:	555f      	strb	r7, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     694:	2580      	movs	r5, #128	; 0x80
+     696:	01ed      	lsls	r5, r5, #7
+     698:	5195      	str	r5, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     69a:	464f      	mov	r7, r9
+     69c:	51d5      	str	r5, [r2, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     69e:	4d20      	ldr	r5, [pc, #128]	; (720 <system_init+0x198>)
+     6a0:	505d      	str	r5, [r3, r1]
+     6a2:	505c      	str	r4, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     6a4:	24ce      	movs	r4, #206	; 0xce
+     6a6:	46a4      	mov	ip, r4
+     6a8:	5d1c      	ldrb	r4, [r3, r4]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     6aa:	4384      	bics	r4, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     6ac:	4665      	mov	r5, ip
+     6ae:	555c      	strb	r4, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     6b0:	2480      	movs	r4, #128	; 0x80
+     6b2:	0424      	lsls	r4, r4, #16
+     6b4:	5194      	str	r4, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     6b6:	51d4      	str	r4, [r2, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     6b8:	4654      	mov	r4, sl
+     6ba:	505c      	str	r4, [r3, r1]
+     6bc:	4c19      	ldr	r4, [pc, #100]	; (724 <system_init+0x19c>)
+     6be:	505c      	str	r4, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     6c0:	24d7      	movs	r4, #215	; 0xd7
+     6c2:	46a4      	mov	ip, r4
+     6c4:	5d1c      	ldrb	r4, [r3, r4]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     6c6:	4384      	bics	r4, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     6c8:	4665      	mov	r5, ip
+     6ca:	555c      	strb	r4, [r3, r5]
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     6cc:	2480      	movs	r4, #128	; 0x80
+     6ce:	0624      	lsls	r4, r4, #24
+     6d0:	5194      	str	r4, [r2, r6]
+	((Port *)hw)->Group[submodule_index].DIRSET.reg = mask;
+     6d2:	51d4      	str	r4, [r2, r7]
+	((Port *)hw)->Group[submodule_index].WRCONFIG.reg = data;
+     6d4:	4652      	mov	r2, sl
+     6d6:	505a      	str	r2, [r3, r1]
+     6d8:	4a13      	ldr	r2, [pc, #76]	; (728 <system_init+0x1a0>)
+     6da:	505a      	str	r2, [r3, r1]
+	tmp = ((Port *)hw)->Group[submodule_index].PINCFG[index].reg;
+     6dc:	3137      	adds	r1, #55	; 0x37
+     6de:	5c5a      	ldrb	r2, [r3, r1]
+	tmp &= ~PORT_PINCFG_PMUXEN;
+     6e0:	4382      	bics	r2, r0
+	((Port *)hw)->Group[submodule_index].PINCFG[index].reg = tmp;
+     6e2:	545a      	strb	r2, [r3, r1]
+	// Set pin direction to output
+	gpio_set_pin_direction(SCK4, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(SCK4, GPIO_PIN_FUNCTION_OFF);
+
+	EXTERNAL_IRQ_0_init();
+     6e4:	4b11      	ldr	r3, [pc, #68]	; (72c <system_init+0x1a4>)
+     6e6:	4798      	blx	r3
+}
+     6e8:	bc1c      	pop	{r2, r3, r4}
+     6ea:	4690      	mov	r8, r2
+     6ec:	4699      	mov	r9, r3
+     6ee:	46a2      	mov	sl, r4
+     6f0:	bdf0      	pop	{r4, r5, r6, r7, pc}
+     6f2:	46c0      	nop			; (mov r8, r8)
+     6f4:	000008e1 	.word	0x000008e1
+     6f8:	41004400 	.word	0x41004400
+     6fc:	40000100 	.word	0x40000100
+     700:	40000400 	.word	0x40000400
+     704:	40002000 	.word	0x40002000
+     708:	c0000040 	.word	0xc0000040
+     70c:	c0000800 	.word	0xc0000800
+     710:	40000002 	.word	0x40000002
+     714:	40000008 	.word	0x40000008
+     718:	40000800 	.word	0x40000800
+     71c:	40001000 	.word	0x40001000
+     720:	40004000 	.word	0x40004000
+     724:	c0000080 	.word	0xc0000080
+     728:	c0008000 	.word	0xc0008000
+     72c:	000001e9 	.word	0x000001e9
+
+00000730 <delay_us>:
+
+/**
+ * \brief Perform delay in us
+ */
+void delay_us(const uint16_t us)
+{
+     730:	b510      	push	{r4, lr}
+	_delay_cycles(hardware, _get_cycles_for_us(us));
+     732:	4b04      	ldr	r3, [pc, #16]	; (744 <delay_us+0x14>)
+     734:	681c      	ldr	r4, [r3, #0]
+     736:	4b04      	ldr	r3, [pc, #16]	; (748 <delay_us+0x18>)
+     738:	4798      	blx	r3
+     73a:	0001      	movs	r1, r0
+     73c:	0020      	movs	r0, r4
+     73e:	4b03      	ldr	r3, [pc, #12]	; (74c <delay_us+0x1c>)
+     740:	4798      	blx	r3
+}
+     742:	bd10      	pop	{r4, pc}
+     744:	2000001c 	.word	0x2000001c
+     748:	000008bd 	.word	0x000008bd
+     74c:	000008d9 	.word	0x000008d9
+
+00000750 <process_ext_irq>:
+ * \brief Interrupt processing routine
+ *
+ * \param[in] pin The pin which triggered the interrupt
+ */
+static void process_ext_irq(const uint32_t pin)
+{
+     750:	b570      	push	{r4, r5, r6, lr}
+	uint8_t lower = 0, middle, upper = EXT_IRQ_AMOUNT;
+     752:	250c      	movs	r5, #12
+     754:	2400      	movs	r4, #0
+
+	while (upper >= lower) {
+     756:	e007      	b.n	768 <process_ext_irq+0x18>
+		if (middle >= EXT_IRQ_AMOUNT) {
+			return;
+		}
+
+		if (ext_irqs[middle].pin == pin) {
+			if (ext_irqs[middle].cb) {
+     758:	4a0d      	ldr	r2, [pc, #52]	; (790 <process_ext_irq+0x40>)
+     75a:	58b3      	ldr	r3, [r6, r2]
+     75c:	2b00      	cmp	r3, #0
+     75e:	d000      	beq.n	762 <process_ext_irq+0x12>
+				ext_irqs[middle].cb();
+     760:	4798      	blx	r3
+			lower = middle + 1;
+		} else {
+			upper = middle - 1;
+		}
+	}
+}
+     762:	bd70      	pop	{r4, r5, r6, pc}
+			upper = middle - 1;
+     764:	3a01      	subs	r2, #1
+     766:	b2d5      	uxtb	r5, r2
+	while (upper >= lower) {
+     768:	42ac      	cmp	r4, r5
+     76a:	d8fa      	bhi.n	762 <process_ext_irq+0x12>
+		middle = (upper + lower) >> 1;
+     76c:	192b      	adds	r3, r5, r4
+     76e:	105b      	asrs	r3, r3, #1
+     770:	b2da      	uxtb	r2, r3
+		if (middle >= EXT_IRQ_AMOUNT) {
+     772:	2a0b      	cmp	r2, #11
+     774:	d8f5      	bhi.n	762 <process_ext_irq+0x12>
+     776:	21ff      	movs	r1, #255	; 0xff
+     778:	400b      	ands	r3, r1
+		if (ext_irqs[middle].pin == pin) {
+     77a:	00de      	lsls	r6, r3, #3
+     77c:	4904      	ldr	r1, [pc, #16]	; (790 <process_ext_irq+0x40>)
+     77e:	1989      	adds	r1, r1, r6
+     780:	6849      	ldr	r1, [r1, #4]
+     782:	4281      	cmp	r1, r0
+     784:	d0e8      	beq.n	758 <process_ext_irq+0x8>
+		if (ext_irqs[middle].pin < pin) {
+     786:	d2ed      	bcs.n	764 <process_ext_irq+0x14>
+			lower = middle + 1;
+     788:	3201      	adds	r2, #1
+     78a:	b2d4      	uxtb	r4, r2
+     78c:	e7ec      	b.n	768 <process_ext_irq+0x18>
+     78e:	46c0      	nop			; (mov r8, r8)
+     790:	20000020 	.word	0x20000020
+
+00000794 <ext_irq_init>:
+{
+     794:	b510      	push	{r4, lr}
+	for (i = 0; i < EXT_IRQ_AMOUNT; i++) {
+     796:	2300      	movs	r3, #0
+     798:	e009      	b.n	7ae <ext_irq_init+0x1a>
+		ext_irqs[i].pin = 0xFFFFFFFF;
+     79a:	4a08      	ldr	r2, [pc, #32]	; (7bc <ext_irq_init+0x28>)
+     79c:	00d9      	lsls	r1, r3, #3
+     79e:	1850      	adds	r0, r2, r1
+     7a0:	2401      	movs	r4, #1
+     7a2:	4264      	negs	r4, r4
+     7a4:	6044      	str	r4, [r0, #4]
+		ext_irqs[i].cb  = NULL;
+     7a6:	2000      	movs	r0, #0
+     7a8:	5088      	str	r0, [r1, r2]
+	for (i = 0; i < EXT_IRQ_AMOUNT; i++) {
+     7aa:	3301      	adds	r3, #1
+     7ac:	b29b      	uxth	r3, r3
+     7ae:	2b0b      	cmp	r3, #11
+     7b0:	d9f3      	bls.n	79a <ext_irq_init+0x6>
+	return _ext_irq_init(process_ext_irq);
+     7b2:	4803      	ldr	r0, [pc, #12]	; (7c0 <ext_irq_init+0x2c>)
+     7b4:	4b03      	ldr	r3, [pc, #12]	; (7c4 <ext_irq_init+0x30>)
+     7b6:	4798      	blx	r3
+}
+     7b8:	bd10      	pop	{r4, pc}
+     7ba:	46c0      	nop			; (mov r8, r8)
+     7bc:	20000020 	.word	0x20000020
+     7c0:	00000751 	.word	0x00000751
+     7c4:	00000915 	.word	0x00000915
+
+000007c8 <ext_irq_register>:
+{
+     7c8:	b5f0      	push	{r4, r5, r6, r7, lr}
+     7ca:	46d6      	mov	lr, sl
+     7cc:	464f      	mov	r7, r9
+     7ce:	4646      	mov	r6, r8
+     7d0:	b5c0      	push	{r6, r7, lr}
+     7d2:	b084      	sub	sp, #16
+	uint8_t i = 0, j = 0;
+     7d4:	2300      	movs	r3, #0
+	for (; i < EXT_IRQ_AMOUNT; i++) {
+     7d6:	2b0b      	cmp	r3, #11
+     7d8:	d80d      	bhi.n	7f6 <ext_irq_register+0x2e>
+		if (ext_irqs[i].pin == pin) {
+     7da:	00dc      	lsls	r4, r3, #3
+     7dc:	4a33      	ldr	r2, [pc, #204]	; (8ac <ext_irq_register+0xe4>)
+     7de:	1912      	adds	r2, r2, r4
+     7e0:	6852      	ldr	r2, [r2, #4]
+     7e2:	4282      	cmp	r2, r0
+     7e4:	d002      	beq.n	7ec <ext_irq_register+0x24>
+	for (; i < EXT_IRQ_AMOUNT; i++) {
+     7e6:	3301      	adds	r3, #1
+     7e8:	b2db      	uxtb	r3, r3
+     7ea:	e7f4      	b.n	7d6 <ext_irq_register+0xe>
+			ext_irqs[i].cb = cb;
+     7ec:	4b2f      	ldr	r3, [pc, #188]	; (8ac <ext_irq_register+0xe4>)
+     7ee:	50e1      	str	r1, [r4, r3]
+			found          = true;
+     7f0:	2301      	movs	r3, #1
+     7f2:	469a      	mov	sl, r3
+			break;
+     7f4:	e001      	b.n	7fa <ext_irq_register+0x32>
+	bool    found = false;
+     7f6:	2300      	movs	r3, #0
+     7f8:	469a      	mov	sl, r3
+	if (NULL == cb) {
+     7fa:	2900      	cmp	r1, #0
+     7fc:	d00e      	beq.n	81c <ext_irq_register+0x54>
+	if (!found) {
+     7fe:	4653      	mov	r3, sl
+     800:	2b00      	cmp	r3, #0
+     802:	d013      	beq.n	82c <ext_irq_register+0x64>
+	if (!found) {
+     804:	4653      	mov	r3, sl
+     806:	2b00      	cmp	r3, #0
+     808:	d04c      	beq.n	8a4 <ext_irq_register+0xdc>
+	return _ext_irq_enable(pin, true);
+     80a:	2101      	movs	r1, #1
+     80c:	4b28      	ldr	r3, [pc, #160]	; (8b0 <ext_irq_register+0xe8>)
+     80e:	4798      	blx	r3
+}
+     810:	b004      	add	sp, #16
+     812:	bc1c      	pop	{r2, r3, r4}
+     814:	4690      	mov	r8, r2
+     816:	4699      	mov	r9, r3
+     818:	46a2      	mov	sl, r4
+     81a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+		if (!found) {
+     81c:	4653      	mov	r3, sl
+     81e:	2b00      	cmp	r3, #0
+     820:	d03d      	beq.n	89e <ext_irq_register+0xd6>
+		return _ext_irq_enable(pin, false);
+     822:	4b23      	ldr	r3, [pc, #140]	; (8b0 <ext_irq_register+0xe8>)
+     824:	4798      	blx	r3
+     826:	e7f3      	b.n	810 <ext_irq_register+0x48>
+		for (i = 0; i < EXT_IRQ_AMOUNT; i++) {
+     828:	3301      	adds	r3, #1
+     82a:	b2db      	uxtb	r3, r3
+     82c:	2b0b      	cmp	r3, #11
+     82e:	d80a      	bhi.n	846 <ext_irq_register+0x7e>
+			if (NULL == ext_irqs[i].cb) {
+     830:	00da      	lsls	r2, r3, #3
+     832:	4d1e      	ldr	r5, [pc, #120]	; (8ac <ext_irq_register+0xe4>)
+     834:	5952      	ldr	r2, [r2, r5]
+     836:	2a00      	cmp	r2, #0
+     838:	d1f6      	bne.n	828 <ext_irq_register+0x60>
+				ext_irqs[i].cb  = cb;
+     83a:	00dc      	lsls	r4, r3, #3
+     83c:	5161      	str	r1, [r4, r5]
+				ext_irqs[i].pin = pin;
+     83e:	192c      	adds	r4, r5, r4
+     840:	6060      	str	r0, [r4, #4]
+				found           = true;
+     842:	2201      	movs	r2, #1
+     844:	4692      	mov	sl, r2
+     846:	2200      	movs	r2, #0
+     848:	e001      	b.n	84e <ext_irq_register+0x86>
+		for (; (j < EXT_IRQ_AMOUNT) && (i < EXT_IRQ_AMOUNT); j++) {
+     84a:	3201      	adds	r2, #1
+     84c:	b2d2      	uxtb	r2, r2
+     84e:	2a0b      	cmp	r2, #11
+     850:	d8d8      	bhi.n	804 <ext_irq_register+0x3c>
+     852:	2b0b      	cmp	r3, #11
+     854:	d8d6      	bhi.n	804 <ext_irq_register+0x3c>
+			if ((ext_irqs[i].pin < ext_irqs[j].pin) && (ext_irqs[j].pin != 0xFFFFFFFF)) {
+     856:	9301      	str	r3, [sp, #4]
+     858:	4914      	ldr	r1, [pc, #80]	; (8ac <ext_irq_register+0xe4>)
+     85a:	00dc      	lsls	r4, r3, #3
+     85c:	190c      	adds	r4, r1, r4
+     85e:	6867      	ldr	r7, [r4, #4]
+     860:	00d4      	lsls	r4, r2, #3
+     862:	1909      	adds	r1, r1, r4
+     864:	6849      	ldr	r1, [r1, #4]
+     866:	428f      	cmp	r7, r1
+     868:	d2ef      	bcs.n	84a <ext_irq_register+0x82>
+     86a:	1c4c      	adds	r4, r1, #1
+     86c:	d0ed      	beq.n	84a <ext_irq_register+0x82>
+				struct ext_irq tmp = ext_irqs[j];
+     86e:	a902      	add	r1, sp, #8
+     870:	468c      	mov	ip, r1
+     872:	4f0e      	ldr	r7, [pc, #56]	; (8ac <ext_irq_register+0xe4>)
+     874:	00d4      	lsls	r4, r2, #3
+     876:	46a0      	mov	r8, r4
+     878:	193c      	adds	r4, r7, r4
+     87a:	4666      	mov	r6, ip
+     87c:	cc22      	ldmia	r4!, {r1, r5}
+     87e:	c622      	stmia	r6!, {r1, r5}
+				ext_irqs[j] = ext_irqs[i];
+     880:	9901      	ldr	r1, [sp, #4]
+     882:	00c9      	lsls	r1, r1, #3
+     884:	4689      	mov	r9, r1
+     886:	4641      	mov	r1, r8
+     888:	1879      	adds	r1, r7, r1
+     88a:	464c      	mov	r4, r9
+     88c:	193c      	adds	r4, r7, r4
+     88e:	cc60      	ldmia	r4!, {r5, r6}
+     890:	c160      	stmia	r1!, {r5, r6}
+				ext_irqs[i] = tmp;
+     892:	003d      	movs	r5, r7
+     894:	444d      	add	r5, r9
+     896:	4661      	mov	r1, ip
+     898:	c950      	ldmia	r1!, {r4, r6}
+     89a:	c550      	stmia	r5!, {r4, r6}
+     89c:	e7d5      	b.n	84a <ext_irq_register+0x82>
+			return ERR_INVALID_ARG;
+     89e:	200d      	movs	r0, #13
+     8a0:	4240      	negs	r0, r0
+     8a2:	e7b5      	b.n	810 <ext_irq_register+0x48>
+		return ERR_INVALID_ARG;
+     8a4:	200d      	movs	r0, #13
+     8a6:	4240      	negs	r0, r0
+     8a8:	e7b2      	b.n	810 <ext_irq_register+0x48>
+     8aa:	46c0      	nop			; (mov r8, r8)
+     8ac:	20000020 	.word	0x20000020
+     8b0:	000009b1 	.word	0x000009b1
+
+000008b4 <assert>:
+/**
+ * \brief Assert function
+ */
+void assert(const bool condition, const char *const file, const int line)
+{
+	if (!(condition)) {
+     8b4:	2800      	cmp	r0, #0
+     8b6:	d100      	bne.n	8ba <assert+0x6>
+		__asm("BKPT #0");
+     8b8:	be00      	bkpt	0x0000
+	}
+	(void)file;
+	(void)line;
+}
+     8ba:	4770      	bx	lr
+
+000008bc <_get_cycles_for_us>:
+
+/**
+ * \brief Retrieve the amount of cycles to delay for the given amount of us
+ */
+uint32_t _get_cycles_for_us(const uint16_t us)
+{
+     8bc:	b510      	push	{r4, lr}
+     8be:	0003      	movs	r3, r0
+		return (us * (freq / 10000) + 299) / 300;
+     8c0:	2064      	movs	r0, #100	; 0x64
+     8c2:	4358      	muls	r0, r3
+     8c4:	302c      	adds	r0, #44	; 0x2c
+     8c6:	30ff      	adds	r0, #255	; 0xff
+     8c8:	2196      	movs	r1, #150	; 0x96
+     8ca:	0049      	lsls	r1, r1, #1
+     8cc:	4b01      	ldr	r3, [pc, #4]	; (8d4 <_get_cycles_for_us+0x18>)
+     8ce:	4798      	blx	r3
+	return _get_cycles_for_us_internal(us, CONF_CPU_FREQUENCY, CPU_FREQ_POWER);
+}
+     8d0:	bd10      	pop	{r4, pc}
+     8d2:	46c0      	nop			; (mov r8, r8)
+     8d4:	00000db5 	.word	0x00000db5
+
+000008d8 <_delay_cycles>:
+{
+#ifndef _UNIT_TEST_
+	(void)hw;
+	(void)cycles;
+#if defined __GNUC__
+	__asm(".syntax unified\n"
+     8d8:	3901      	subs	r1, #1
+     8da:	d8fd      	bhi.n	8d8 <_delay_cycles>
+	__asm("__delay:\n"
+	      "subs r1, r1, #1\n"
+	      "bhi __delay\n");
+#endif
+#endif
+}
+     8dc:	4770      	bx	lr
+	...
+
+000008e0 <_init_chip>:
+
+/**
+ * \brief Initialize the hardware abstraction layer
+ */
+void _init_chip(void)
+{
+     8e0:	b510      	push	{r4, lr}
+}
+
+static inline void hri_nvmctrl_set_CTRLB_RWS_bf(const void *const hw, hri_nvmctrl_ctrlb_reg_t mask)
+{
+	NVMCTRL_CRITICAL_SECTION_ENTER();
+	((Nvmctrl *)hw)->CTRLB.reg |= NVMCTRL_CTRLB_RWS(mask);
+     8e2:	4a07      	ldr	r2, [pc, #28]	; (900 <_init_chip+0x20>)
+     8e4:	6853      	ldr	r3, [r2, #4]
+     8e6:	2102      	movs	r1, #2
+     8e8:	430b      	orrs	r3, r1
+     8ea:	6053      	str	r3, [r2, #4]
+	hri_nvmctrl_set_CTRLB_RWS_bf(NVMCTRL, CONF_NVM_WAIT_STATE);
+
+	_pm_init();
+     8ec:	4b05      	ldr	r3, [pc, #20]	; (904 <_init_chip+0x24>)
+     8ee:	4798      	blx	r3
+	_sysctrl_init_sources();
+     8f0:	4b05      	ldr	r3, [pc, #20]	; (908 <_init_chip+0x28>)
+     8f2:	4798      	blx	r3
+#if _GCLK_INIT_1ST
+	_gclk_init_generators_by_fref(_GCLK_INIT_1ST);
+#endif
+	_sysctrl_init_referenced_generators();
+     8f4:	4b05      	ldr	r3, [pc, #20]	; (90c <_init_chip+0x2c>)
+     8f6:	4798      	blx	r3
+	_gclk_init_generators_by_fref(_GCLK_INIT_LAST);
+     8f8:	20ff      	movs	r0, #255	; 0xff
+     8fa:	4b05      	ldr	r3, [pc, #20]	; (910 <_init_chip+0x30>)
+     8fc:	4798      	blx	r3
+#if CONF_DMAC_ENABLE
+	_pm_enable_bus_clock(PM_BUS_AHB, DMAC);
+	_pm_enable_bus_clock(PM_BUS_APBB, DMAC);
+	_dma_init();
+#endif
+}
+     8fe:	bd10      	pop	{r4, pc}
+     900:	41004000 	.word	0x41004000
+     904:	00000ae1 	.word	0x00000ae1
+     908:	00000b01 	.word	0x00000b01
+     90c:	00000b4d 	.word	0x00000b4d
+     910:	00000ac1 	.word	0x00000ac1
+
+00000914 <_ext_irq_init>:
+typedef uint8_t  hri_eic_nmiflag_reg_t;
+typedef uint8_t  hri_eic_status_reg_t;
+
+static inline void hri_eic_wait_for_sync(const void *const hw)
+{
+	while (((const Eic *)hw)->STATUS.bit.SYNCBUSY)
+     914:	4b21      	ldr	r3, [pc, #132]	; (99c <_ext_irq_init+0x88>)
+     916:	785b      	ldrb	r3, [r3, #1]
+     918:	09db      	lsrs	r3, r3, #7
+     91a:	d1fb      	bne.n	914 <_ext_irq_init>
+     91c:	4b1f      	ldr	r3, [pc, #124]	; (99c <_ext_irq_init+0x88>)
+     91e:	785b      	ldrb	r3, [r3, #1]
+     920:	09db      	lsrs	r3, r3, #7
+     922:	d1fb      	bne.n	91c <_ext_irq_init+0x8>
+
+static inline hri_eic_ctrl_reg_t hri_eic_get_CTRL_reg(const void *const hw, hri_eic_ctrl_reg_t mask)
+{
+	uint8_t tmp;
+	hri_eic_wait_for_sync(hw);
+	tmp = ((Eic *)hw)->CTRL.reg;
+     924:	4b1d      	ldr	r3, [pc, #116]	; (99c <_ext_irq_init+0x88>)
+     926:	781b      	ldrb	r3, [r3, #0]
+ * \brief Initialize external interrupt module
+ */
+int32_t _ext_irq_init(void (*cb)(const uint32_t pin))
+{
+	hri_eic_wait_for_sync(EIC);
+	if (hri_eic_get_CTRL_reg(EIC, EIC_CTRL_ENABLE)) {
+     928:	079b      	lsls	r3, r3, #30
+     92a:	d50a      	bpl.n	942 <_ext_irq_init+0x2e>
+}
+
+static inline void hri_eic_write_CTRL_reg(const void *const hw, hri_eic_ctrl_reg_t data)
+{
+	EIC_CRITICAL_SECTION_ENTER();
+	((Eic *)hw)->CTRL.reg = data;
+     92c:	2200      	movs	r2, #0
+     92e:	4b1b      	ldr	r3, [pc, #108]	; (99c <_ext_irq_init+0x88>)
+     930:	701a      	strb	r2, [r3, #0]
+	while (((const Eic *)hw)->STATUS.bit.SYNCBUSY)
+     932:	4b1a      	ldr	r3, [pc, #104]	; (99c <_ext_irq_init+0x88>)
+     934:	785b      	ldrb	r3, [r3, #1]
+     936:	09db      	lsrs	r3, r3, #7
+     938:	d1fb      	bne.n	932 <_ext_irq_init+0x1e>
+     93a:	4b18      	ldr	r3, [pc, #96]	; (99c <_ext_irq_init+0x88>)
+     93c:	785b      	ldrb	r3, [r3, #1]
+     93e:	09db      	lsrs	r3, r3, #7
+     940:	d1fb      	bne.n	93a <_ext_irq_init+0x26>
+	((Eic *)hw)->CTRL.reg = data;
+     942:	2201      	movs	r2, #1
+     944:	4b15      	ldr	r3, [pc, #84]	; (99c <_ext_irq_init+0x88>)
+     946:	701a      	strb	r2, [r3, #0]
+	while (((const Eic *)hw)->STATUS.bit.SYNCBUSY)
+     948:	4b14      	ldr	r3, [pc, #80]	; (99c <_ext_irq_init+0x88>)
+     94a:	785b      	ldrb	r3, [r3, #1]
+     94c:	09db      	lsrs	r3, r3, #7
+     94e:	d1fb      	bne.n	948 <_ext_irq_init+0x34>
+     950:	4b12      	ldr	r3, [pc, #72]	; (99c <_ext_irq_init+0x88>)
+     952:	785b      	ldrb	r3, [r3, #1]
+     954:	09db      	lsrs	r3, r3, #7
+     956:	d1fb      	bne.n	950 <_ext_irq_init+0x3c>
+}
+
+static inline void hri_eic_write_NMICTRL_reg(const void *const hw, hri_eic_nmictrl_reg_t data)
+{
+	EIC_CRITICAL_SECTION_ENTER();
+	((Eic *)hw)->NMICTRL.reg = data;
+     958:	4b10      	ldr	r3, [pc, #64]	; (99c <_ext_irq_init+0x88>)
+     95a:	2200      	movs	r2, #0
+     95c:	709a      	strb	r2, [r3, #2]
+}
+
+static inline void hri_eic_write_EVCTRL_reg(const void *const hw, hri_eic_evctrl_reg_t data)
+{
+	EIC_CRITICAL_SECTION_ENTER();
+	((Eic *)hw)->EVCTRL.reg = data;
+     95e:	605a      	str	r2, [r3, #4]
+}
+
+static inline void hri_eic_write_WAKEUP_reg(const void *const hw, hri_eic_wakeup_reg_t data)
+{
+	EIC_CRITICAL_SECTION_ENTER();
+	((Eic *)hw)->WAKEUP.reg = data;
+     960:	615a      	str	r2, [r3, #20]
+}
+
+static inline void hri_eic_write_CONFIG_reg(const void *const hw, uint8_t index, hri_eic_config_reg_t data)
+{
+	EIC_CRITICAL_SECTION_ENTER();
+	((Eic *)hw)->CONFIG[index].reg = data;
+     962:	4a0f      	ldr	r2, [pc, #60]	; (9a0 <_ext_irq_init+0x8c>)
+     964:	619a      	str	r2, [r3, #24]
+     966:	4a0f      	ldr	r2, [pc, #60]	; (9a4 <_ext_irq_init+0x90>)
+     968:	61da      	str	r2, [r3, #28]
+	((Eic *)hw)->CTRL.reg |= EIC_CTRL_ENABLE;
+     96a:	781a      	ldrb	r2, [r3, #0]
+     96c:	2102      	movs	r1, #2
+     96e:	430a      	orrs	r2, r1
+     970:	b2d2      	uxtb	r2, r2
+     972:	701a      	strb	r2, [r3, #0]
+	while (((const Eic *)hw)->STATUS.bit.SYNCBUSY)
+     974:	4b09      	ldr	r3, [pc, #36]	; (99c <_ext_irq_init+0x88>)
+     976:	785b      	ldrb	r3, [r3, #1]
+     978:	09db      	lsrs	r3, r3, #7
+     97a:	d1fb      	bne.n	974 <_ext_irq_init+0x60>
+ */
+__STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+{
+  if ((int32_t)(IRQn) >= 0)
+  {
+    NVIC->ICER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+     97c:	4b0a      	ldr	r3, [pc, #40]	; (9a8 <_ext_irq_init+0x94>)
+     97e:	2210      	movs	r2, #16
+     980:	2180      	movs	r1, #128	; 0x80
+     982:	505a      	str	r2, [r3, r1]
+  \details Acts as a special kind of Data Memory Barrier.
+           It completes when all explicit memory accesses before this instruction complete.
+ */
+__STATIC_FORCEINLINE void __DSB(void)
+{
+  __ASM volatile ("dsb 0xF":::"memory");
+     984:	f3bf 8f4f 	dsb	sy
+  __ASM volatile ("isb 0xF":::"memory");
+     988:	f3bf 8f6f 	isb	sy
+ */
+__STATIC_INLINE void __NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+{
+  if ((int32_t)(IRQn) >= 0)
+  {
+    NVIC->ICPR[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+     98c:	3101      	adds	r1, #1
+     98e:	31ff      	adds	r1, #255	; 0xff
+     990:	505a      	str	r2, [r3, r1]
+    NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+     992:	601a      	str	r2, [r3, #0]
+
+	NVIC_DisableIRQ(EIC_IRQn);
+	NVIC_ClearPendingIRQ(EIC_IRQn);
+	NVIC_EnableIRQ(EIC_IRQn);
+
+	callback = cb;
+     994:	4b05      	ldr	r3, [pc, #20]	; (9ac <_ext_irq_init+0x98>)
+     996:	6018      	str	r0, [r3, #0]
+
+	return ERR_NONE;
+}
+     998:	2000      	movs	r0, #0
+     99a:	4770      	bx	lr
+     99c:	40001800 	.word	0x40001800
+     9a0:	22000202 	.word	0x22000202
+     9a4:	22222222 	.word	0x22222222
+     9a8:	e000e100 	.word	0xe000e100
+     9ac:	20000080 	.word	0x20000080
+
+000009b0 <_ext_irq_enable>:
+
+/**
+ * \brief Enable / disable external irq
+ */
+int32_t _ext_irq_enable(const uint32_t pin, const bool enable)
+{
+     9b0:	b530      	push	{r4, r5, lr}
+	uint8_t extint = INVALID_EXTINT_NUMBER;
+	uint8_t i      = 0;
+     9b2:	2300      	movs	r3, #0
+
+	for (; i < ARRAY_SIZE(_map); i++) {
+     9b4:	2b0b      	cmp	r3, #11
+     9b6:	d80b      	bhi.n	9d0 <_ext_irq_enable+0x20>
+		if (_map[i].pin == pin) {
+     9b8:	00dc      	lsls	r4, r3, #3
+     9ba:	4a10      	ldr	r2, [pc, #64]	; (9fc <_ext_irq_enable+0x4c>)
+     9bc:	1912      	adds	r2, r2, r4
+     9be:	6852      	ldr	r2, [r2, #4]
+     9c0:	4282      	cmp	r2, r0
+     9c2:	d002      	beq.n	9ca <_ext_irq_enable+0x1a>
+	for (; i < ARRAY_SIZE(_map); i++) {
+     9c4:	3301      	adds	r3, #1
+     9c6:	b2db      	uxtb	r3, r3
+     9c8:	e7f4      	b.n	9b4 <_ext_irq_enable+0x4>
+			extint = _map[i].extint;
+     9ca:	4b0c      	ldr	r3, [pc, #48]	; (9fc <_ext_irq_enable+0x4c>)
+     9cc:	5ce2      	ldrb	r2, [r4, r3]
+			break;
+     9ce:	e000      	b.n	9d2 <_ext_irq_enable+0x22>
+	uint8_t extint = INVALID_EXTINT_NUMBER;
+     9d0:	22ff      	movs	r2, #255	; 0xff
+		}
+	}
+	if (INVALID_EXTINT_NUMBER == extint) {
+     9d2:	2aff      	cmp	r2, #255	; 0xff
+     9d4:	d00e      	beq.n	9f4 <_ext_irq_enable+0x44>
+		return ERR_INVALID_ARG;
+	}
+
+	if (enable) {
+     9d6:	2900      	cmp	r1, #0
+     9d8:	d106      	bne.n	9e8 <_ext_irq_enable+0x38>
+		hri_eic_set_INTEN_reg(EIC, 1ul << extint);
+	} else {
+		hri_eic_clear_INTEN_reg(EIC, 1ul << extint);
+     9da:	2301      	movs	r3, #1
+     9dc:	4093      	lsls	r3, r2
+	((Eic *)hw)->INTENCLR.reg = mask;
+     9de:	4a08      	ldr	r2, [pc, #32]	; (a00 <_ext_irq_enable+0x50>)
+     9e0:	6093      	str	r3, [r2, #8]
+	((Eic *)hw)->INTFLAG.reg = mask;
+     9e2:	6113      	str	r3, [r2, #16]
+		hri_eic_clear_INTFLAG_reg(EIC, 1ul << extint);
+	}
+
+	return ERR_NONE;
+     9e4:	2000      	movs	r0, #0
+}
+     9e6:	bd30      	pop	{r4, r5, pc}
+		hri_eic_set_INTEN_reg(EIC, 1ul << extint);
+     9e8:	2301      	movs	r3, #1
+     9ea:	4093      	lsls	r3, r2
+	((Eic *)hw)->INTENSET.reg = mask;
+     9ec:	4a04      	ldr	r2, [pc, #16]	; (a00 <_ext_irq_enable+0x50>)
+     9ee:	60d3      	str	r3, [r2, #12]
+	return ERR_NONE;
+     9f0:	2000      	movs	r0, #0
+     9f2:	e7f8      	b.n	9e6 <_ext_irq_enable+0x36>
+		return ERR_INVALID_ARG;
+     9f4:	200d      	movs	r0, #13
+     9f6:	4240      	negs	r0, r0
+     9f8:	e7f5      	b.n	9e6 <_ext_irq_enable+0x36>
+     9fa:	46c0      	nop			; (mov r8, r8)
+     9fc:	00000f68 	.word	0x00000f68
+     a00:	40001800 	.word	0x40001800
+
+00000a04 <EIC_Handler>:
+
+/**
+ * \brief EIC interrupt handler
+ */
+void EIC_Handler(void)
+{
+     a04:	b5f0      	push	{r4, r5, r6, r7, lr}
+     a06:	b083      	sub	sp, #12
+	return ((Eic *)hw)->INTFLAG.reg;
+     a08:	4b27      	ldr	r3, [pc, #156]	; (aa8 <EIC_Handler+0xa4>)
+     a0a:	691a      	ldr	r2, [r3, #16]
+	return ((Eic *)hw)->INTENSET.reg;
+     a0c:	68d9      	ldr	r1, [r3, #12]
+	volatile uint32_t flags = hri_eic_read_INTFLAG_reg(EIC) & hri_eic_read_INTEN_reg(EIC);
+     a0e:	400a      	ands	r2, r1
+     a10:	9201      	str	r2, [sp, #4]
+	int8_t            pos;
+	uint32_t          pin = INVALID_PIN_NUMBER;
+
+	hri_eic_clear_INTFLAG_reg(EIC, flags);
+     a12:	9a01      	ldr	r2, [sp, #4]
+	((Eic *)hw)->INTFLAG.reg = mask;
+     a14:	611a      	str	r2, [r3, #16]
+
+	ASSERT(callback);
+     a16:	4b25      	ldr	r3, [pc, #148]	; (aac <EIC_Handler+0xa8>)
+     a18:	6818      	ldr	r0, [r3, #0]
+     a1a:	1e43      	subs	r3, r0, #1
+     a1c:	4198      	sbcs	r0, r3
+     a1e:	b2c0      	uxtb	r0, r0
+     a20:	22d2      	movs	r2, #210	; 0xd2
+     a22:	4923      	ldr	r1, [pc, #140]	; (ab0 <EIC_Handler+0xac>)
+     a24:	4b23      	ldr	r3, [pc, #140]	; (ab4 <EIC_Handler+0xb0>)
+     a26:	4798      	blx	r3
+	uint32_t          pin = INVALID_PIN_NUMBER;
+     a28:	2501      	movs	r5, #1
+     a2a:	426d      	negs	r5, r5
+
+	while (flags) {
+     a2c:	e031      	b.n	a92 <EIC_Handler+0x8e>
+			uint8_t lower = 0, middle, upper = EXT_IRQ_AMOUNT;
+
+			while (upper >= lower) {
+				middle = (upper + lower) >> 1;
+				if (_map[middle].extint == pos) {
+					pin = _map[middle].pin;
+     a2e:	00db      	lsls	r3, r3, #3
+     a30:	4a21      	ldr	r2, [pc, #132]	; (ab8 <EIC_Handler+0xb4>)
+     a32:	18d3      	adds	r3, r2, r3
+     a34:	685d      	ldr	r5, [r3, #4]
+				} else {
+					upper = middle - 1;
+				}
+			}
+
+			if (INVALID_PIN_NUMBER != pin) {
+     a36:	1c6b      	adds	r3, r5, #1
+     a38:	d003      	beq.n	a42 <EIC_Handler+0x3e>
+				callback(pin);
+     a3a:	4b1c      	ldr	r3, [pc, #112]	; (aac <EIC_Handler+0xa8>)
+     a3c:	681b      	ldr	r3, [r3, #0]
+     a3e:	0028      	movs	r0, r5
+     a40:	4798      	blx	r3
+			}
+			flags &= ~(1ul << pos);
+     a42:	2201      	movs	r2, #1
+     a44:	40a2      	lsls	r2, r4
+     a46:	9b01      	ldr	r3, [sp, #4]
+     a48:	4393      	bics	r3, r2
+     a4a:	9301      	str	r3, [sp, #4]
+			pos = ffs(flags) - 1;
+     a4c:	9801      	ldr	r0, [sp, #4]
+     a4e:	4b1b      	ldr	r3, [pc, #108]	; (abc <EIC_Handler+0xb8>)
+     a50:	4798      	blx	r3
+     a52:	3801      	subs	r0, #1
+     a54:	b244      	sxtb	r4, r0
+		while (-1 != pos) {
+     a56:	1c63      	adds	r3, r4, #1
+     a58:	d014      	beq.n	a84 <EIC_Handler+0x80>
+     a5a:	260c      	movs	r6, #12
+     a5c:	2000      	movs	r0, #0
+     a5e:	e001      	b.n	a64 <EIC_Handler+0x60>
+					upper = middle - 1;
+     a60:	3901      	subs	r1, #1
+     a62:	b2ce      	uxtb	r6, r1
+			while (upper >= lower) {
+     a64:	42b0      	cmp	r0, r6
+     a66:	d8e6      	bhi.n	a36 <EIC_Handler+0x32>
+				middle = (upper + lower) >> 1;
+     a68:	1833      	adds	r3, r6, r0
+     a6a:	105b      	asrs	r3, r3, #1
+     a6c:	b2d9      	uxtb	r1, r3
+     a6e:	22ff      	movs	r2, #255	; 0xff
+     a70:	4013      	ands	r3, r2
+				if (_map[middle].extint == pos) {
+     a72:	00df      	lsls	r7, r3, #3
+     a74:	4a10      	ldr	r2, [pc, #64]	; (ab8 <EIC_Handler+0xb4>)
+     a76:	5cba      	ldrb	r2, [r7, r2]
+     a78:	42a2      	cmp	r2, r4
+     a7a:	d0d8      	beq.n	a2e <EIC_Handler+0x2a>
+				if (_map[middle].extint < pos) {
+     a7c:	daf0      	bge.n	a60 <EIC_Handler+0x5c>
+					lower = middle + 1;
+     a7e:	3101      	adds	r1, #1
+     a80:	b2c8      	uxtb	r0, r1
+     a82:	e7ef      	b.n	a64 <EIC_Handler+0x60>
+	return ((Eic *)hw)->INTFLAG.reg;
+     a84:	4b08      	ldr	r3, [pc, #32]	; (aa8 <EIC_Handler+0xa4>)
+     a86:	691a      	ldr	r2, [r3, #16]
+	return ((Eic *)hw)->INTENSET.reg;
+     a88:	68d9      	ldr	r1, [r3, #12]
+		}
+		flags = hri_eic_read_INTFLAG_reg(EIC) & hri_eic_read_INTEN_reg(EIC);
+     a8a:	400a      	ands	r2, r1
+     a8c:	9201      	str	r2, [sp, #4]
+		hri_eic_clear_INTFLAG_reg(EIC, flags);
+     a8e:	9a01      	ldr	r2, [sp, #4]
+	((Eic *)hw)->INTFLAG.reg = mask;
+     a90:	611a      	str	r2, [r3, #16]
+	while (flags) {
+     a92:	9b01      	ldr	r3, [sp, #4]
+     a94:	2b00      	cmp	r3, #0
+     a96:	d005      	beq.n	aa4 <EIC_Handler+0xa0>
+		pos = ffs(flags) - 1;
+     a98:	9801      	ldr	r0, [sp, #4]
+     a9a:	4b08      	ldr	r3, [pc, #32]	; (abc <EIC_Handler+0xb8>)
+     a9c:	4798      	blx	r3
+     a9e:	3801      	subs	r0, #1
+     aa0:	b244      	sxtb	r4, r0
+		while (-1 != pos) {
+     aa2:	e7d8      	b.n	a56 <EIC_Handler+0x52>
+	}
+}
+     aa4:	b003      	add	sp, #12
+     aa6:	bdf0      	pop	{r4, r5, r6, r7, pc}
+     aa8:	40001800 	.word	0x40001800
+     aac:	20000080 	.word	0x20000080
+     ab0:	00000fc8 	.word	0x00000fc8
+     ab4:	000008b5 	.word	0x000008b5
+     ab8:	00000f68 	.word	0x00000f68
+     abc:	00000ecd 	.word	0x00000ecd
+
+00000ac0 <_gclk_init_generators_by_fref>:
+
+void _gclk_init_generators_by_fref(uint32_t bm)
+{
+
+#if CONF_GCLK_GENERATOR_0_CONFIG == 1
+	if (bm & (1ul << 0)) {
+     ac0:	07c3      	lsls	r3, r0, #31
+     ac2:	d50a      	bpl.n	ada <_gclk_init_generators_by_fref+0x1a>
+}
+
+static inline void hri_gclk_write_GENDIV_reg(const void *const hw, hri_gclk_gendiv_reg_t data)
+{
+	GCLK_CRITICAL_SECTION_ENTER();
+	((Gclk *)hw)->GENDIV.reg = data;
+     ac4:	4b05      	ldr	r3, [pc, #20]	; (adc <_gclk_init_generators_by_fref+0x1c>)
+     ac6:	2280      	movs	r2, #128	; 0x80
+     ac8:	0052      	lsls	r2, r2, #1
+     aca:	609a      	str	r2, [r3, #8]
+	((Gclk *)hw)->GENCTRL.reg = data;
+     acc:	2283      	movs	r2, #131	; 0x83
+     ace:	0252      	lsls	r2, r2, #9
+     ad0:	605a      	str	r2, [r3, #4]
+	while (((const Gclk *)hw)->STATUS.bit.SYNCBUSY)
+     ad2:	4b02      	ldr	r3, [pc, #8]	; (adc <_gclk_init_generators_by_fref+0x1c>)
+     ad4:	785b      	ldrb	r3, [r3, #1]
+     ad6:	09db      	lsrs	r3, r3, #7
+     ad8:	d1fb      	bne.n	ad2 <_gclk_init_generators_by_fref+0x12>
+		        | (CONF_GCLK_GEN_8_DIVSEL << GCLK_GENCTRL_DIVSEL_Pos) | (CONF_GCLK_GEN_8_OE << GCLK_GENCTRL_OE_Pos)
+		        | (CONF_GCLK_GEN_8_OOV << GCLK_GENCTRL_OOV_Pos) | (CONF_GCLK_GEN_8_IDC << GCLK_GENCTRL_IDC_Pos)
+		        | (CONF_GCLK_GENERATOR_8_CONFIG << GCLK_GENCTRL_GENEN_Pos) | CONF_GCLK_GEN_8_SRC | GCLK_GENCTRL_ID(8));
+	}
+#endif
+}
+     ada:	4770      	bx	lr
+     adc:	40000c00 	.word	0x40000c00
+
+00000ae0 <_pm_init>:
+}
+
+static inline void hri_pm_set_CPUSEL_CPUDIV_bf(const void *const hw, hri_pm_cpusel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->CPUSEL.reg |= PM_CPUSEL_CPUDIV(mask);
+     ae0:	4b06      	ldr	r3, [pc, #24]	; (afc <_pm_init+0x1c>)
+     ae2:	7a1a      	ldrb	r2, [r3, #8]
+     ae4:	b2d2      	uxtb	r2, r2
+     ae6:	721a      	strb	r2, [r3, #8]
+}
+
+static inline void hri_pm_set_APBASEL_APBADIV_bf(const void *const hw, hri_pm_apbasel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->APBASEL.reg |= PM_APBASEL_APBADIV(mask);
+     ae8:	7a5a      	ldrb	r2, [r3, #9]
+     aea:	b2d2      	uxtb	r2, r2
+     aec:	725a      	strb	r2, [r3, #9]
+}
+
+static inline void hri_pm_set_APBBSEL_APBBDIV_bf(const void *const hw, hri_pm_apbbsel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->APBBSEL.reg |= PM_APBBSEL_APBBDIV(mask);
+     aee:	7a9a      	ldrb	r2, [r3, #10]
+     af0:	b2d2      	uxtb	r2, r2
+     af2:	729a      	strb	r2, [r3, #10]
+}
+
+static inline void hri_pm_set_APBCSEL_APBCDIV_bf(const void *const hw, hri_pm_apbcsel_reg_t mask)
+{
+	PM_CRITICAL_SECTION_ENTER();
+	((Pm *)hw)->APBCSEL.reg |= PM_APBCSEL_APBCDIV(mask);
+     af4:	7ada      	ldrb	r2, [r3, #11]
+     af6:	b2d2      	uxtb	r2, r2
+     af8:	72da      	strb	r2, [r3, #11]
+{
+	hri_pm_set_CPUSEL_CPUDIV_bf(PM, CONF_CPU_DIV);
+	hri_pm_set_APBASEL_APBADIV_bf(PM, CONF_APBA_DIV);
+	hri_pm_set_APBBSEL_APBBDIV_bf(PM, CONF_APBB_DIV);
+	hri_pm_set_APBCSEL_APBCDIV_bf(PM, CONF_APBC_DIV);
+}
+     afa:	4770      	bx	lr
+     afc:	40000400 	.word	0x40000400
+
+00000b00 <_sysctrl_init_sources>:
+}
+
+static inline hri_sysctrl_osc8m_reg_t hri_sysctrl_read_OSC8M_CALIB_bf(const void *const hw)
+{
+	uint32_t tmp;
+	tmp = ((Sysctrl *)hw)->OSC8M.reg;
+     b00:	4b0f      	ldr	r3, [pc, #60]	; (b40 <_sysctrl_init_sources+0x40>)
+     b02:	6a19      	ldr	r1, [r3, #32]
+	tmp = (tmp & SYSCTRL_OSC8M_CALIB_Msk) >> SYSCTRL_OSC8M_CALIB_Pos;
+     b04:	0c09      	lsrs	r1, r1, #16
+}
+
+static inline hri_sysctrl_osc8m_reg_t hri_sysctrl_read_OSC8M_FRANGE_bf(const void *const hw)
+{
+	uint32_t tmp;
+	tmp = ((Sysctrl *)hw)->OSC8M.reg;
+     b06:	6a1a      	ldr	r2, [r3, #32]
+
+#if CONF_OSC8M_CONFIG == 1
+	calib = hri_sysctrl_read_OSC8M_CALIB_bf(hw);
+
+	hri_sysctrl_write_OSC8M_reg(hw,
+	                            SYSCTRL_OSC8M_FRANGE(hri_sysctrl_read_OSC8M_FRANGE_bf(hw)) |
+     b08:	0f92      	lsrs	r2, r2, #30
+     b0a:	0792      	lsls	r2, r2, #30
+#if CONF_OSC8M_OVERWRITE_CALIBRATION == 1
+	                                SYSCTRL_OSC8M_CALIB(CONF_OSC8M_CALIB) |
+#else
+	                                SYSCTRL_OSC8M_CALIB(calib) |
+     b0c:	0409      	lsls	r1, r1, #16
+     b0e:	480d      	ldr	r0, [pc, #52]	; (b44 <_sysctrl_init_sources+0x44>)
+     b10:	4001      	ands	r1, r0
+	                            SYSCTRL_OSC8M_FRANGE(hri_sysctrl_read_OSC8M_FRANGE_bf(hw)) |
+     b12:	430a      	orrs	r2, r1
+	hri_sysctrl_write_OSC8M_reg(hw,
+     b14:	490c      	ldr	r1, [pc, #48]	; (b48 <_sysctrl_init_sources+0x48>)
+     b16:	430a      	orrs	r2, r1
+}
+
+static inline void hri_sysctrl_write_OSC8M_reg(const void *const hw, hri_sysctrl_osc8m_reg_t data)
+{
+	SYSCTRL_CRITICAL_SECTION_ENTER();
+	((Sysctrl *)hw)->OSC8M.reg = data;
+     b18:	621a      	str	r2, [r3, #32]
+	((Sysctrl *)hw)->OSC32K.reg |= SYSCTRL_OSC32K_ENABLE;
+     b1a:	699a      	ldr	r2, [r3, #24]
+     b1c:	2102      	movs	r1, #2
+     b1e:	430a      	orrs	r2, r1
+     b20:	619a      	str	r2, [r3, #24]
+	tmp = ((Sysctrl *)hw)->OSCULP32K.reg;
+     b22:	7f1a      	ldrb	r2, [r3, #28]
+	tmp = (tmp & SYSCTRL_OSCULP32K_CALIB_Msk) >> SYSCTRL_OSCULP32K_CALIB_Pos;
+     b24:	311d      	adds	r1, #29
+     b26:	400a      	ands	r2, r1
+	((Sysctrl *)hw)->OSCULP32K.reg = data;
+     b28:	771a      	strb	r2, [r3, #28]
+	return (((Sysctrl *)hw)->PCLKSR.reg & SYSCTRL_PCLKSR_OSC8MRDY) >> SYSCTRL_PCLKSR_OSC8MRDY_Pos;
+     b2a:	4b05      	ldr	r3, [pc, #20]	; (b40 <_sysctrl_init_sources+0x40>)
+     b2c:	68db      	ldr	r3, [r3, #12]
+#endif
+#endif
+
+#if CONF_OSC8M_CONFIG == 1
+#if CONF_OSC8M_ENABLE == 1
+	while (!hri_sysctrl_get_PCLKSR_OSC8MRDY_bit(hw))
+     b2e:	071b      	lsls	r3, r3, #28
+     b30:	d5fb      	bpl.n	b2a <_sysctrl_init_sources+0x2a>
+	((Sysctrl *)hw)->OSC8M.reg |= SYSCTRL_OSC8M_ONDEMAND;
+     b32:	4a03      	ldr	r2, [pc, #12]	; (b40 <_sysctrl_init_sources+0x40>)
+     b34:	6a13      	ldr	r3, [r2, #32]
+     b36:	2180      	movs	r1, #128	; 0x80
+     b38:	430b      	orrs	r3, r1
+     b3a:	6213      	str	r3, [r2, #32]
+	hri_sysctrl_set_OSC8M_ONDEMAND_bit(hw);
+#endif
+#endif
+
+	(void)calib, (void)hw;
+}
+     b3c:	4770      	bx	lr
+     b3e:	46c0      	nop			; (mov r8, r8)
+     b40:	40000800 	.word	0x40000800
+     b44:	0fff0000 	.word	0x0fff0000
+     b48:	00000302 	.word	0x00000302
+
+00000b4c <_sysctrl_init_referenced_generators>:
+	((Sysctrl *)hw)->OSC32K.reg &= ~SYSCTRL_OSC32K_ENABLE;
+     b4c:	4a02      	ldr	r2, [pc, #8]	; (b58 <_sysctrl_init_referenced_generators+0xc>)
+     b4e:	6993      	ldr	r3, [r2, #24]
+     b50:	2102      	movs	r1, #2
+     b52:	438b      	bics	r3, r1
+     b54:	6193      	str	r3, [r2, #24]
+	/* Disable after all possible configurations needs sync written. */
+	hri_sysctrl_clear_OSC32K_ENABLE_bit(hw);
+#endif
+
+	(void)hw;
+}
+     b56:	4770      	bx	lr
+     b58:	40000800 	.word	0x40000800
+
+00000b5c <isr1>:
+#include <atmel_start.h>
+
+void isr1 ( void )
+{
+     b5c:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     b5e:	2400      	movs	r4, #0
+     b60:	e009      	b.n	b76 <isr1+0x1a>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     b62:	25c0      	movs	r5, #192	; 0xc0
+     b64:	05ed      	lsls	r5, r5, #23
+     b66:	2680      	movs	r6, #128	; 0x80
+     b68:	03f6      	lsls	r6, r6, #15
+     b6a:	61ae      	str	r6, [r5, #24]
+	{
+		gpio_set_pin_level( SCK1, 1 );
+		delay_us(1);
+     b6c:	2001      	movs	r0, #1
+     b6e:	4b03      	ldr	r3, [pc, #12]	; (b7c <isr1+0x20>)
+     b70:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     b72:	616e      	str	r6, [r5, #20]
+	for ( int i = 0; i < 25; i++ )
+     b74:	3401      	adds	r4, #1
+     b76:	2c18      	cmp	r4, #24
+     b78:	ddf3      	ble.n	b62 <isr1+0x6>
+		gpio_set_pin_level( SCK1, 0 );
+	}
+}
+     b7a:	bd70      	pop	{r4, r5, r6, pc}
+     b7c:	00000731 	.word	0x00000731
+
+00000b80 <isr2>:
+
+void isr2 ( void )
+{
+     b80:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     b82:	2400      	movs	r4, #0
+     b84:	e00b      	b.n	b9e <isr2+0x1e>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     b86:	25c0      	movs	r5, #192	; 0xc0
+     b88:	05ed      	lsls	r5, r5, #23
+     b8a:	2680      	movs	r6, #128	; 0x80
+     b8c:	0436      	lsls	r6, r6, #16
+     b8e:	2398      	movs	r3, #152	; 0x98
+     b90:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK2, 1 );
+		delay_us(1);
+     b92:	2001      	movs	r0, #1
+     b94:	4b03      	ldr	r3, [pc, #12]	; (ba4 <isr2+0x24>)
+     b96:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     b98:	2394      	movs	r3, #148	; 0x94
+     b9a:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     b9c:	3401      	adds	r4, #1
+     b9e:	2c18      	cmp	r4, #24
+     ba0:	ddf1      	ble.n	b86 <isr2+0x6>
+		gpio_set_pin_level( SCK2, 0 );
+	}
+}
+     ba2:	bd70      	pop	{r4, r5, r6, pc}
+     ba4:	00000731 	.word	0x00000731
+
+00000ba8 <isr3>:
+
+void isr3 ( void )
+{
+     ba8:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     baa:	2400      	movs	r4, #0
+     bac:	e009      	b.n	bc2 <isr3+0x1a>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     bae:	25c0      	movs	r5, #192	; 0xc0
+     bb0:	05ed      	lsls	r5, r5, #23
+     bb2:	2680      	movs	r6, #128	; 0x80
+     bb4:	0536      	lsls	r6, r6, #20
+     bb6:	61ae      	str	r6, [r5, #24]
+	{
+		gpio_set_pin_level( SCK3, 1 );
+		delay_us(1);
+     bb8:	2001      	movs	r0, #1
+     bba:	4b03      	ldr	r3, [pc, #12]	; (bc8 <isr3+0x20>)
+     bbc:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     bbe:	616e      	str	r6, [r5, #20]
+	for ( int i = 0; i < 25; i++ )
+     bc0:	3401      	adds	r4, #1
+     bc2:	2c18      	cmp	r4, #24
+     bc4:	ddf3      	ble.n	bae <isr3+0x6>
+		gpio_set_pin_level( SCK3, 0 );
+	}
+}
+     bc6:	bd70      	pop	{r4, r5, r6, pc}
+     bc8:	00000731 	.word	0x00000731
+
+00000bcc <isr4>:
+
+void isr4 ( void )
+{
+     bcc:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     bce:	2400      	movs	r4, #0
+     bd0:	e00b      	b.n	bea <isr4+0x1e>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     bd2:	25c0      	movs	r5, #192	; 0xc0
+     bd4:	05ed      	lsls	r5, r5, #23
+     bd6:	2680      	movs	r6, #128	; 0x80
+     bd8:	0636      	lsls	r6, r6, #24
+     bda:	2398      	movs	r3, #152	; 0x98
+     bdc:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK4, 1 );
+		delay_us(1);
+     bde:	2001      	movs	r0, #1
+     be0:	4b03      	ldr	r3, [pc, #12]	; (bf0 <isr4+0x24>)
+     be2:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     be4:	2394      	movs	r3, #148	; 0x94
+     be6:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     be8:	3401      	adds	r4, #1
+     bea:	2c18      	cmp	r4, #24
+     bec:	ddf1      	ble.n	bd2 <isr4+0x6>
+		gpio_set_pin_level( SCK4, 0 );
+	}
+}
+     bee:	bd70      	pop	{r4, r5, r6, pc}
+     bf0:	00000731 	.word	0x00000731
+
+00000bf4 <isr5>:
+
+void isr5 ( void )
+{
+     bf4:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     bf6:	2400      	movs	r4, #0
+     bf8:	e00a      	b.n	c10 <isr5+0x1c>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     bfa:	25c0      	movs	r5, #192	; 0xc0
+     bfc:	05ed      	lsls	r5, r5, #23
+     bfe:	2602      	movs	r6, #2
+     c00:	2398      	movs	r3, #152	; 0x98
+     c02:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK5, 1 );
+		delay_us(1);
+     c04:	2001      	movs	r0, #1
+     c06:	4b04      	ldr	r3, [pc, #16]	; (c18 <isr5+0x24>)
+     c08:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     c0a:	2394      	movs	r3, #148	; 0x94
+     c0c:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     c0e:	3401      	adds	r4, #1
+     c10:	2c18      	cmp	r4, #24
+     c12:	ddf2      	ble.n	bfa <isr5+0x6>
+		gpio_set_pin_level( SCK5, 0 );
+	}
+}
+     c14:	bd70      	pop	{r4, r5, r6, pc}
+     c16:	46c0      	nop			; (mov r8, r8)
+     c18:	00000731 	.word	0x00000731
+
+00000c1c <isr6>:
+
+void isr6 ( void )
+{
+     c1c:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     c1e:	2400      	movs	r4, #0
+     c20:	e00a      	b.n	c38 <isr6+0x1c>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     c22:	25c0      	movs	r5, #192	; 0xc0
+     c24:	05ed      	lsls	r5, r5, #23
+     c26:	2608      	movs	r6, #8
+     c28:	2398      	movs	r3, #152	; 0x98
+     c2a:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK6, 1 );
+		delay_us(1);
+     c2c:	2001      	movs	r0, #1
+     c2e:	4b04      	ldr	r3, [pc, #16]	; (c40 <isr6+0x24>)
+     c30:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     c32:	2394      	movs	r3, #148	; 0x94
+     c34:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     c36:	3401      	adds	r4, #1
+     c38:	2c18      	cmp	r4, #24
+     c3a:	ddf2      	ble.n	c22 <isr6+0x6>
+		gpio_set_pin_level( SCK6, 0 );
+	}
+}
+     c3c:	bd70      	pop	{r4, r5, r6, pc}
+     c3e:	46c0      	nop			; (mov r8, r8)
+     c40:	00000731 	.word	0x00000731
+
+00000c44 <isr7>:
+
+void isr7 ( void )
+{
+     c44:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     c46:	2400      	movs	r4, #0
+     c48:	e009      	b.n	c5e <isr7+0x1a>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     c4a:	25c0      	movs	r5, #192	; 0xc0
+     c4c:	05ed      	lsls	r5, r5, #23
+     c4e:	2680      	movs	r6, #128	; 0x80
+     c50:	01b6      	lsls	r6, r6, #6
+     c52:	61ae      	str	r6, [r5, #24]
+	{
+		gpio_set_pin_level( SCK7, 1 );
+		delay_us(1);
+     c54:	2001      	movs	r0, #1
+     c56:	4b03      	ldr	r3, [pc, #12]	; (c64 <isr7+0x20>)
+     c58:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     c5a:	616e      	str	r6, [r5, #20]
+	for ( int i = 0; i < 25; i++ )
+     c5c:	3401      	adds	r4, #1
+     c5e:	2c18      	cmp	r4, #24
+     c60:	ddf3      	ble.n	c4a <isr7+0x6>
+		gpio_set_pin_level( SCK7, 0 );
+	}
+}
+     c62:	bd70      	pop	{r4, r5, r6, pc}
+     c64:	00000731 	.word	0x00000731
+
+00000c68 <isr8>:
+
+void isr8 ( void )
+{
+     c68:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     c6a:	2400      	movs	r4, #0
+     c6c:	e00b      	b.n	c86 <isr8+0x1e>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     c6e:	25c0      	movs	r5, #192	; 0xc0
+     c70:	05ed      	lsls	r5, r5, #23
+     c72:	2680      	movs	r6, #128	; 0x80
+     c74:	01f6      	lsls	r6, r6, #7
+     c76:	2398      	movs	r3, #152	; 0x98
+     c78:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK8, 1 );
+		delay_us(1);
+     c7a:	2001      	movs	r0, #1
+     c7c:	4b03      	ldr	r3, [pc, #12]	; (c8c <isr8+0x24>)
+     c7e:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     c80:	2394      	movs	r3, #148	; 0x94
+     c82:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     c84:	3401      	adds	r4, #1
+     c86:	2c18      	cmp	r4, #24
+     c88:	ddf1      	ble.n	c6e <isr8+0x6>
+		gpio_set_pin_level( SCK8, 0 );
+	}
+}
+     c8a:	bd70      	pop	{r4, r5, r6, pc}
+     c8c:	00000731 	.word	0x00000731
+
+00000c90 <isr9>:
+
+void isr9 ( void )
+{
+     c90:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     c92:	2400      	movs	r4, #0
+     c94:	e00b      	b.n	cae <isr9+0x1e>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     c96:	25c0      	movs	r5, #192	; 0xc0
+     c98:	05ed      	lsls	r5, r5, #23
+     c9a:	2680      	movs	r6, #128	; 0x80
+     c9c:	0176      	lsls	r6, r6, #5
+     c9e:	2398      	movs	r3, #152	; 0x98
+     ca0:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK9, 1 );
+		delay_us(1);
+     ca2:	2001      	movs	r0, #1
+     ca4:	4b03      	ldr	r3, [pc, #12]	; (cb4 <isr9+0x24>)
+     ca6:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     ca8:	2394      	movs	r3, #148	; 0x94
+     caa:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     cac:	3401      	adds	r4, #1
+     cae:	2c18      	cmp	r4, #24
+     cb0:	ddf1      	ble.n	c96 <isr9+0x6>
+		gpio_set_pin_level( SCK9, 0 );
+	}
+}
+     cb2:	bd70      	pop	{r4, r5, r6, pc}
+     cb4:	00000731 	.word	0x00000731
+
+00000cb8 <isr10>:
+
+void isr10 ( void )
+{
+     cb8:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     cba:	2400      	movs	r4, #0
+     cbc:	e00b      	b.n	cd6 <isr10+0x1e>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     cbe:	25c0      	movs	r5, #192	; 0xc0
+     cc0:	05ed      	lsls	r5, r5, #23
+     cc2:	2680      	movs	r6, #128	; 0x80
+     cc4:	0136      	lsls	r6, r6, #4
+     cc6:	2398      	movs	r3, #152	; 0x98
+     cc8:	50ee      	str	r6, [r5, r3]
+	{
+		gpio_set_pin_level( SCK10, 1 );
+		delay_us(1);
+     cca:	2001      	movs	r0, #1
+     ccc:	4b03      	ldr	r3, [pc, #12]	; (cdc <isr10+0x24>)
+     cce:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     cd0:	2394      	movs	r3, #148	; 0x94
+     cd2:	50ee      	str	r6, [r5, r3]
+	for ( int i = 0; i < 25; i++ )
+     cd4:	3401      	adds	r4, #1
+     cd6:	2c18      	cmp	r4, #24
+     cd8:	ddf1      	ble.n	cbe <isr10+0x6>
+		gpio_set_pin_level( SCK10, 0 );
+	}
+}
+     cda:	bd70      	pop	{r4, r5, r6, pc}
+     cdc:	00000731 	.word	0x00000731
+
+00000ce0 <isr11>:
+
+void isr11 ( void )
+{
+     ce0:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     ce2:	2400      	movs	r4, #0
+     ce4:	e009      	b.n	cfa <isr11+0x1a>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     ce6:	25c0      	movs	r5, #192	; 0xc0
+     ce8:	05ed      	lsls	r5, r5, #23
+     cea:	2680      	movs	r6, #128	; 0x80
+     cec:	00f6      	lsls	r6, r6, #3
+     cee:	61ae      	str	r6, [r5, #24]
+	{
+		gpio_set_pin_level( SCK11, 1 );
+		delay_us(1);
+     cf0:	2001      	movs	r0, #1
+     cf2:	4b03      	ldr	r3, [pc, #12]	; (d00 <isr11+0x20>)
+     cf4:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     cf6:	616e      	str	r6, [r5, #20]
+	for ( int i = 0; i < 25; i++ )
+     cf8:	3401      	adds	r4, #1
+     cfa:	2c18      	cmp	r4, #24
+     cfc:	ddf3      	ble.n	ce6 <isr11+0x6>
+		gpio_set_pin_level( SCK11, 0 );
+	}
+}
+     cfe:	bd70      	pop	{r4, r5, r6, pc}
+     d00:	00000731 	.word	0x00000731
+
+00000d04 <isr12>:
+
+void isr12 ( void )
+{
+     d04:	b570      	push	{r4, r5, r6, lr}
+	for ( int i = 0; i < 25; i++ )
+     d06:	2400      	movs	r4, #0
+     d08:	e009      	b.n	d1e <isr12+0x1a>
+	((Port *)hw)->Group[submodule_index].OUTSET.reg = mask;
+     d0a:	25c0      	movs	r5, #192	; 0xc0
+     d0c:	05ed      	lsls	r5, r5, #23
+     d0e:	2680      	movs	r6, #128	; 0x80
+     d10:	0076      	lsls	r6, r6, #1
+     d12:	61ae      	str	r6, [r5, #24]
+	{
+		gpio_set_pin_level( SCK12, 1 );
+		delay_us(1);
+     d14:	2001      	movs	r0, #1
+     d16:	4b03      	ldr	r3, [pc, #12]	; (d24 <isr12+0x20>)
+     d18:	4798      	blx	r3
+	((Port *)hw)->Group[submodule_index].OUTCLR.reg = mask;
+     d1a:	616e      	str	r6, [r5, #20]
+	for ( int i = 0; i < 25; i++ )
+     d1c:	3401      	adds	r4, #1
+     d1e:	2c18      	cmp	r4, #24
+     d20:	ddf3      	ble.n	d0a <isr12+0x6>
+		gpio_set_pin_level( SCK12, 0 );
+	}
+}
+     d22:	bd70      	pop	{r4, r5, r6, pc}
+     d24:	00000731 	.word	0x00000731
+
+00000d28 <main>:
+
+
+
+
+int main(void)
+{
+     d28:	b510      	push	{r4, lr}
+	/* Initializes MCU, drivers and middleware */
+	atmel_start_init();
+     d2a:	4b14      	ldr	r3, [pc, #80]	; (d7c <main+0x54>)
+     d2c:	4798      	blx	r3
+	
+	ext_irq_register( DOUT1, isr1 );
+     d2e:	4914      	ldr	r1, [pc, #80]	; (d80 <main+0x58>)
+     d30:	2017      	movs	r0, #23
+     d32:	4c14      	ldr	r4, [pc, #80]	; (d84 <main+0x5c>)
+     d34:	47a0      	blx	r4
+	ext_irq_register( DOUT2, isr2 );
+     d36:	4914      	ldr	r1, [pc, #80]	; (d88 <main+0x60>)
+     d38:	2036      	movs	r0, #54	; 0x36
+     d3a:	47a0      	blx	r4
+	ext_irq_register( DOUT3, isr3 );
+     d3c:	4913      	ldr	r1, [pc, #76]	; (d8c <main+0x64>)
+     d3e:	201c      	movs	r0, #28
+     d40:	47a0      	blx	r4
+	ext_irq_register( DOUT4, isr4 );
+     d42:	4913      	ldr	r1, [pc, #76]	; (d90 <main+0x68>)
+     d44:	203e      	movs	r0, #62	; 0x3e
+     d46:	47a0      	blx	r4
+	ext_irq_register( DOUT5, isr5 );
+     d48:	4912      	ldr	r1, [pc, #72]	; (d94 <main+0x6c>)
+     d4a:	2020      	movs	r0, #32
+     d4c:	47a0      	blx	r4
+	ext_irq_register( DOUT6, isr6 );
+     d4e:	4912      	ldr	r1, [pc, #72]	; (d98 <main+0x70>)
+     d50:	2022      	movs	r0, #34	; 0x22
+     d52:	47a0      	blx	r4
+	ext_irq_register( DOUT7, isr7 );
+     d54:	4911      	ldr	r1, [pc, #68]	; (d9c <main+0x74>)
+     d56:	200c      	movs	r0, #12
+     d58:	47a0      	blx	r4
+	ext_irq_register( DOUT8, isr8 );
+     d5a:	4911      	ldr	r1, [pc, #68]	; (da0 <main+0x78>)
+     d5c:	202f      	movs	r0, #47	; 0x2f
+     d5e:	47a0      	blx	r4
+	ext_irq_register( DOUT9, isr9 );
+     d60:	4910      	ldr	r1, [pc, #64]	; (da4 <main+0x7c>)
+     d62:	202d      	movs	r0, #45	; 0x2d
+     d64:	47a0      	blx	r4
+	ext_irq_register( DOUT10, isr10 );
+     d66:	4910      	ldr	r1, [pc, #64]	; (da8 <main+0x80>)
+     d68:	202a      	movs	r0, #42	; 0x2a
+     d6a:	47a0      	blx	r4
+	ext_irq_register( DOUT11, isr11 );
+     d6c:	490f      	ldr	r1, [pc, #60]	; (dac <main+0x84>)
+     d6e:	200b      	movs	r0, #11
+     d70:	47a0      	blx	r4
+	ext_irq_register( DOUT12, isr12 );
+     d72:	490f      	ldr	r1, [pc, #60]	; (db0 <main+0x88>)
+     d74:	2009      	movs	r0, #9
+     d76:	47a0      	blx	r4
+     d78:	e7fe      	b.n	d78 <main+0x50>
+     d7a:	46c0      	nop			; (mov r8, r8)
+     d7c:	00000115 	.word	0x00000115
+     d80:	00000b5d 	.word	0x00000b5d
+     d84:	000007c9 	.word	0x000007c9
+     d88:	00000b81 	.word	0x00000b81
+     d8c:	00000ba9 	.word	0x00000ba9
+     d90:	00000bcd 	.word	0x00000bcd
+     d94:	00000bf5 	.word	0x00000bf5
+     d98:	00000c1d 	.word	0x00000c1d
+     d9c:	00000c45 	.word	0x00000c45
+     da0:	00000c69 	.word	0x00000c69
+     da4:	00000c91 	.word	0x00000c91
+     da8:	00000cb9 	.word	0x00000cb9
+     dac:	00000ce1 	.word	0x00000ce1
+     db0:	00000d05 	.word	0x00000d05
+
+00000db4 <__udivsi3>:
+     db4:	2200      	movs	r2, #0
+     db6:	0843      	lsrs	r3, r0, #1
+     db8:	428b      	cmp	r3, r1
+     dba:	d374      	bcc.n	ea6 <__udivsi3+0xf2>
+     dbc:	0903      	lsrs	r3, r0, #4
+     dbe:	428b      	cmp	r3, r1
+     dc0:	d35f      	bcc.n	e82 <__udivsi3+0xce>
+     dc2:	0a03      	lsrs	r3, r0, #8
+     dc4:	428b      	cmp	r3, r1
+     dc6:	d344      	bcc.n	e52 <__udivsi3+0x9e>
+     dc8:	0b03      	lsrs	r3, r0, #12
+     dca:	428b      	cmp	r3, r1
+     dcc:	d328      	bcc.n	e20 <__udivsi3+0x6c>
+     dce:	0c03      	lsrs	r3, r0, #16
+     dd0:	428b      	cmp	r3, r1
+     dd2:	d30d      	bcc.n	df0 <__udivsi3+0x3c>
+     dd4:	22ff      	movs	r2, #255	; 0xff
+     dd6:	0209      	lsls	r1, r1, #8
+     dd8:	ba12      	rev	r2, r2
+     dda:	0c03      	lsrs	r3, r0, #16
+     ddc:	428b      	cmp	r3, r1
+     dde:	d302      	bcc.n	de6 <__udivsi3+0x32>
+     de0:	1212      	asrs	r2, r2, #8
+     de2:	0209      	lsls	r1, r1, #8
+     de4:	d065      	beq.n	eb2 <__udivsi3+0xfe>
+     de6:	0b03      	lsrs	r3, r0, #12
+     de8:	428b      	cmp	r3, r1
+     dea:	d319      	bcc.n	e20 <__udivsi3+0x6c>
+     dec:	e000      	b.n	df0 <__udivsi3+0x3c>
+     dee:	0a09      	lsrs	r1, r1, #8
+     df0:	0bc3      	lsrs	r3, r0, #15
+     df2:	428b      	cmp	r3, r1
+     df4:	d301      	bcc.n	dfa <__udivsi3+0x46>
+     df6:	03cb      	lsls	r3, r1, #15
+     df8:	1ac0      	subs	r0, r0, r3
+     dfa:	4152      	adcs	r2, r2
+     dfc:	0b83      	lsrs	r3, r0, #14
+     dfe:	428b      	cmp	r3, r1
+     e00:	d301      	bcc.n	e06 <__udivsi3+0x52>
+     e02:	038b      	lsls	r3, r1, #14
+     e04:	1ac0      	subs	r0, r0, r3
+     e06:	4152      	adcs	r2, r2
+     e08:	0b43      	lsrs	r3, r0, #13
+     e0a:	428b      	cmp	r3, r1
+     e0c:	d301      	bcc.n	e12 <__udivsi3+0x5e>
+     e0e:	034b      	lsls	r3, r1, #13
+     e10:	1ac0      	subs	r0, r0, r3
+     e12:	4152      	adcs	r2, r2
+     e14:	0b03      	lsrs	r3, r0, #12
+     e16:	428b      	cmp	r3, r1
+     e18:	d301      	bcc.n	e1e <__udivsi3+0x6a>
+     e1a:	030b      	lsls	r3, r1, #12
+     e1c:	1ac0      	subs	r0, r0, r3
+     e1e:	4152      	adcs	r2, r2
+     e20:	0ac3      	lsrs	r3, r0, #11
+     e22:	428b      	cmp	r3, r1
+     e24:	d301      	bcc.n	e2a <__udivsi3+0x76>
+     e26:	02cb      	lsls	r3, r1, #11
+     e28:	1ac0      	subs	r0, r0, r3
+     e2a:	4152      	adcs	r2, r2
+     e2c:	0a83      	lsrs	r3, r0, #10
+     e2e:	428b      	cmp	r3, r1
+     e30:	d301      	bcc.n	e36 <__udivsi3+0x82>
+     e32:	028b      	lsls	r3, r1, #10
+     e34:	1ac0      	subs	r0, r0, r3
+     e36:	4152      	adcs	r2, r2
+     e38:	0a43      	lsrs	r3, r0, #9
+     e3a:	428b      	cmp	r3, r1
+     e3c:	d301      	bcc.n	e42 <__udivsi3+0x8e>
+     e3e:	024b      	lsls	r3, r1, #9
+     e40:	1ac0      	subs	r0, r0, r3
+     e42:	4152      	adcs	r2, r2
+     e44:	0a03      	lsrs	r3, r0, #8
+     e46:	428b      	cmp	r3, r1
+     e48:	d301      	bcc.n	e4e <__udivsi3+0x9a>
+     e4a:	020b      	lsls	r3, r1, #8
+     e4c:	1ac0      	subs	r0, r0, r3
+     e4e:	4152      	adcs	r2, r2
+     e50:	d2cd      	bcs.n	dee <__udivsi3+0x3a>
+     e52:	09c3      	lsrs	r3, r0, #7
+     e54:	428b      	cmp	r3, r1
+     e56:	d301      	bcc.n	e5c <__udivsi3+0xa8>
+     e58:	01cb      	lsls	r3, r1, #7
+     e5a:	1ac0      	subs	r0, r0, r3
+     e5c:	4152      	adcs	r2, r2
+     e5e:	0983      	lsrs	r3, r0, #6
+     e60:	428b      	cmp	r3, r1
+     e62:	d301      	bcc.n	e68 <__udivsi3+0xb4>
+     e64:	018b      	lsls	r3, r1, #6
+     e66:	1ac0      	subs	r0, r0, r3
+     e68:	4152      	adcs	r2, r2
+     e6a:	0943      	lsrs	r3, r0, #5
+     e6c:	428b      	cmp	r3, r1
+     e6e:	d301      	bcc.n	e74 <__udivsi3+0xc0>
+     e70:	014b      	lsls	r3, r1, #5
+     e72:	1ac0      	subs	r0, r0, r3
+     e74:	4152      	adcs	r2, r2
+     e76:	0903      	lsrs	r3, r0, #4
+     e78:	428b      	cmp	r3, r1
+     e7a:	d301      	bcc.n	e80 <__udivsi3+0xcc>
+     e7c:	010b      	lsls	r3, r1, #4
+     e7e:	1ac0      	subs	r0, r0, r3
+     e80:	4152      	adcs	r2, r2
+     e82:	08c3      	lsrs	r3, r0, #3
+     e84:	428b      	cmp	r3, r1
+     e86:	d301      	bcc.n	e8c <__udivsi3+0xd8>
+     e88:	00cb      	lsls	r3, r1, #3
+     e8a:	1ac0      	subs	r0, r0, r3
+     e8c:	4152      	adcs	r2, r2
+     e8e:	0883      	lsrs	r3, r0, #2
+     e90:	428b      	cmp	r3, r1
+     e92:	d301      	bcc.n	e98 <__udivsi3+0xe4>
+     e94:	008b      	lsls	r3, r1, #2
+     e96:	1ac0      	subs	r0, r0, r3
+     e98:	4152      	adcs	r2, r2
+     e9a:	0843      	lsrs	r3, r0, #1
+     e9c:	428b      	cmp	r3, r1
+     e9e:	d301      	bcc.n	ea4 <__udivsi3+0xf0>
+     ea0:	004b      	lsls	r3, r1, #1
+     ea2:	1ac0      	subs	r0, r0, r3
+     ea4:	4152      	adcs	r2, r2
+     ea6:	1a41      	subs	r1, r0, r1
+     ea8:	d200      	bcs.n	eac <__udivsi3+0xf8>
+     eaa:	4601      	mov	r1, r0
+     eac:	4152      	adcs	r2, r2
+     eae:	4610      	mov	r0, r2
+     eb0:	4770      	bx	lr
+     eb2:	e7ff      	b.n	eb4 <__udivsi3+0x100>
+     eb4:	b501      	push	{r0, lr}
+     eb6:	2000      	movs	r0, #0
+     eb8:	f000 f806 	bl	ec8 <__aeabi_idiv0>
+     ebc:	bd02      	pop	{r1, pc}
+     ebe:	46c0      	nop			; (mov r8, r8)
+
+00000ec0 <__aeabi_uidivmod>:
+     ec0:	2900      	cmp	r1, #0
+     ec2:	d0f7      	beq.n	eb4 <__udivsi3+0x100>
+     ec4:	e776      	b.n	db4 <__udivsi3>
+     ec6:	4770      	bx	lr
+
+00000ec8 <__aeabi_idiv0>:
+     ec8:	4770      	bx	lr
+     eca:	46c0      	nop			; (mov r8, r8)
+
+00000ecc <__ffssi2>:
+     ecc:	b510      	push	{r4, lr}
+     ece:	2300      	movs	r3, #0
+     ed0:	2800      	cmp	r0, #0
+     ed2:	d002      	beq.n	eda <__ffssi2+0xe>
+     ed4:	f000 f804 	bl	ee0 <__ctzsi2>
+     ed8:	1c43      	adds	r3, r0, #1
+     eda:	0018      	movs	r0, r3
+     edc:	bd10      	pop	{r4, pc}
+     ede:	46c0      	nop			; (mov r8, r8)
+
+00000ee0 <__ctzsi2>:
+     ee0:	4241      	negs	r1, r0
+     ee2:	4008      	ands	r0, r1
+     ee4:	211c      	movs	r1, #28
+     ee6:	2301      	movs	r3, #1
+     ee8:	041b      	lsls	r3, r3, #16
+     eea:	4298      	cmp	r0, r3
+     eec:	d301      	bcc.n	ef2 <__ctzsi2+0x12>
+     eee:	0c00      	lsrs	r0, r0, #16
+     ef0:	3910      	subs	r1, #16
+     ef2:	0a1b      	lsrs	r3, r3, #8
+     ef4:	4298      	cmp	r0, r3
+     ef6:	d301      	bcc.n	efc <__ctzsi2+0x1c>
+     ef8:	0a00      	lsrs	r0, r0, #8
+     efa:	3908      	subs	r1, #8
+     efc:	091b      	lsrs	r3, r3, #4
+     efe:	4298      	cmp	r0, r3
+     f00:	d301      	bcc.n	f06 <__ctzsi2+0x26>
+     f02:	0900      	lsrs	r0, r0, #4
+     f04:	3904      	subs	r1, #4
+     f06:	a202      	add	r2, pc, #8	; (adr r2, f10 <__ctzsi2+0x30>)
+     f08:	5c10      	ldrb	r0, [r2, r0]
+     f0a:	1a40      	subs	r0, r0, r1
+     f0c:	4770      	bx	lr
+     f0e:	46c0      	nop			; (mov r8, r8)
+     f10:	1d1d1c1b 	.word	0x1d1d1c1b
+     f14:	1e1e1e1e 	.word	0x1e1e1e1e
+     f18:	1f1f1f1f 	.word	0x1f1f1f1f
+     f1c:	1f1f1f1f 	.word	0x1f1f1f1f
+
+00000f20 <__libc_init_array>:
+     f20:	b570      	push	{r4, r5, r6, lr}
+     f22:	2600      	movs	r6, #0
+     f24:	4d0c      	ldr	r5, [pc, #48]	; (f58 <__libc_init_array+0x38>)
+     f26:	4c0d      	ldr	r4, [pc, #52]	; (f5c <__libc_init_array+0x3c>)
+     f28:	1b64      	subs	r4, r4, r5
+     f2a:	10a4      	asrs	r4, r4, #2
+     f2c:	42a6      	cmp	r6, r4
+     f2e:	d109      	bne.n	f44 <__libc_init_array+0x24>
+     f30:	2600      	movs	r6, #0
+     f32:	f000 f855 	bl	fe0 <_init>
+     f36:	4d0a      	ldr	r5, [pc, #40]	; (f60 <__libc_init_array+0x40>)
+     f38:	4c0a      	ldr	r4, [pc, #40]	; (f64 <__libc_init_array+0x44>)
+     f3a:	1b64      	subs	r4, r4, r5
+     f3c:	10a4      	asrs	r4, r4, #2
+     f3e:	42a6      	cmp	r6, r4
+     f40:	d105      	bne.n	f4e <__libc_init_array+0x2e>
+     f42:	bd70      	pop	{r4, r5, r6, pc}
+     f44:	00b3      	lsls	r3, r6, #2
+     f46:	58eb      	ldr	r3, [r5, r3]
+     f48:	4798      	blx	r3
+     f4a:	3601      	adds	r6, #1
+     f4c:	e7ee      	b.n	f2c <__libc_init_array+0xc>
+     f4e:	00b3      	lsls	r3, r6, #2
+     f50:	58eb      	ldr	r3, [r5, r3]
+     f52:	4798      	blx	r3
+     f54:	3601      	adds	r6, #1
+     f56:	e7f2      	b.n	f3e <__libc_init_array+0x1e>
+     f58:	00000fec 	.word	0x00000fec
+     f5c:	00000fec 	.word	0x00000fec
+     f60:	00000fec 	.word	0x00000fec
+     f64:	00000ff0 	.word	0x00000ff0
+
+00000f68 <_map>:
+     f68:	00000000 00000020 00000002 00000022     .... ......."...
+     f78:	00000006 00000036 00000007 00000017     ....6...........
+     f88:	00000008 0000001c 00000009 00000009     ................
+     f98:	0000000a 0000002a 0000000b 0000000b     ....*...........
+     fa8:	0000000c 0000000c 0000000d 0000002d     ............-...
+     fb8:	0000000e 0000003e 0000000f 0000002f     ....>......./...
+     fc8:	682f2e2e 652f6c70 682f6369 655f6c70     ../hpl/eic/hpl_e
+     fd8:	632e6369 00000000                       ic.c....
+
+00000fe0 <_init>:
+     fe0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+     fe2:	46c0      	nop			; (mov r8, r8)
+     fe4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+     fe6:	bc08      	pop	{r3}
+     fe8:	469e      	mov	lr, r3
+     fea:	4770      	bx	lr
+
+00000fec <__init_array_start>:
+     fec:	000000dd 	.word	0x000000dd
+
+00000ff0 <_fini>:
+     ff0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+     ff2:	46c0      	nop			; (mov r8, r8)
+     ff4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+     ff6:	bc08      	pop	{r3}
+     ff8:	469e      	mov	lr, r3
+     ffa:	4770      	bx	lr
+
+00000ffc <__fini_array_start>:
+     ffc:	000000b5 	.word	0x000000b5
